@@ -47,7 +47,7 @@ exports.validation = async (req, res) => {
       return res.redirect("/userDetails/validateMsg");
     } else {
       if(data.id !== ""){
-          let upbd = `update candidatemaster set c_fname='${data.fname}',c_lname='${data.lname}', c_designation='${data.designation}', c_email='${data.email}', c_phoneNo='${data.pNo}', c_address='${data.addr}', c_city='${data.city}', c_state='${data.state}', c_zipcode='${data.zipcode}', c_gender='${data.Gender}', c_relationship='${data.Relationship}', c_dob='${data.DOB}' where id = '${data.id}';`
+          let upbd = `update candidatemaster set c_fname='${data.fname}',c_lname='${data.lname}', c_designation='${data.Cdesignation}', c_email='${data.email}', c_phoneNo='${data.pNo}', c_address='${data.addr}', c_city='${data.city}', c_state='${data.state}', c_zipcode='${data.zipcode}', c_gender='${data.Gender}', c_relationship='${data.Relationship}', c_dob='${data.DOB}' where id = '${data.id}';`
 
           let [bdres] = await  connection.query(upbd);
 

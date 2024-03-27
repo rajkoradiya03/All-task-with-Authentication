@@ -13,6 +13,10 @@ const { getData2 } = require('../controllers/Delimeter_Search/dataController2');
 const { mainForm } = require('../controllers/Job_Application_CRUD/mainForm');
 const { validation } = require('../controllers/Job_Application_CRUD/validate');
 const { updateForm } = require('../controllers/Job_Application_CRUD/update');
+const { form } = require('../controllers/AJAX_Job_Application/generate');
+const { ajaxvalidation } = require('../controllers/AJAX_Job_Application/validation');
+const { showData } = require('../controllers/AJAX_Job_Application/showData');
+const { ajaxupdateForm } = require('../controllers/AJAX_Job_Application/update');
 const router =  express.Router();
 
 
@@ -113,4 +117,12 @@ router.get('/userDetails/generate', mainForm);
 router.post('/userDetails/validate', validation);
 router.get('/userDetails/updateForm', updateForm);
 
+router.get('/userDetails/ajaxform', form);
+router.post('/userDetails/ajaxvalidate', ajaxvalidation)
+router.get('/userDetails/ajaxValidateMsg', (req,res)=>{
+    res.send('Please Fill Required Field! OR Please Check emailID OR Please chaeck Phone Number');
+})
+router.get('/userDetails/welcome',showData);
+router.get('/userDetails/update/:id', form);
+router.get('/userDetails/getData/:id', ajaxupdateForm)
 module.exports = router;

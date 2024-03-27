@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        .btn{
+            margin: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .nevbtn{
+            border: 1px solid black;
+            border-radius: 8px;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 2px 2px 4px;
+        }
+        #ED{
+            display: none;
+            max-width: 1100px;
+            margin: 0px auto;
+        }
+        #WE{
+            display: none;
+            max-width: 1200px;
+            margin: 0px auto;
+        }
+        #LT{
+            display: none;
+            max-width: 1100px;
+            margin: 0px auto;
+        }
+        #RD{
+            display: none;
+            max-width: 1100px;
+            margin: 0px auto;
+        }
+        #PD{
+            display: none;
+            max-width: 1100px;
+            margin: 0px auto;
+        }
+        .lbtn{
+            max-height: 30px;
+        }
+        p{
+            margin: 0; 
+            font-size: 12px; 
+        }
+        .head{
+          display: flex;
+          justify-content: center;
+        }
+        #BD{
+          margin: 0 auto;
+          max-width: 1100px;
+        }
+        .LTsection{
+          display: flex;
+          justify-content: center;
+          gap: 50px;
+        }
+    </style>
+</head>
+<body>
+  <div class="head">
+    <h2>Raj Koradiya - 24DEV063</h2>
+  </div>
+    <div class="head">
+        <h2>Job Application Form</h2>
+    </div>
+    <div>
+        <form action="/userDetails/ajaxvalidate" name="form" id="form" method="post">
+            <div id="BD">
+                <fieldset>
+                  <legend style="font-weight: bold">Basic Details</legend>
+                  <table>
+                    <tr>
+                      <input type="hidden" name="id" id="id" value="">
+                      <td>
+                        <label for="fname">First Name:</label>
+                      </td>
+                      <td class="flex">
+                        <input type="text" name="fname" id="fname" class="valid" value=""/>
+                      </td>
+                      <td>
+                        <label for="lname">Last Name:</label>
+                      </td>
+                      <td class="flex">
+                        <input type="text" name="lname" id="lname" class="valid" value=""/>
+                      </td>
+                      <td>
+                        <label for="designation">Designation:</label>
+                      </td>
+                      <td class="flex">
+                        <input
+                          type="text"
+                          name="Cdesignation"
+                          id="designation"
+                          class="valid"
+                          value=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label for="email">Email ID:</label>
+                      </td>
+                      <td class="flex">
+                        <input type="text" name="email" id="email" class="valid" value=""/>
+                        <p></p>
+                        <p class="msg"></p>
+                      </td>
+                      <td>
+                        <label for="pNo">Phone Number:</label>
+                      </td>
+                      <td class="flex">
+                        <input type="text" name="pNo" id="pNo" class="valid" value=""/>
+                        <p></p>
+                        <p class="msg"></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label for="address">Address:</label>
+                      </td>
+                      <td colspan="5">
+                        <textarea
+                          name="addr"
+                          id="addr"
+                          cols="100"
+                          rows="2"
+                          class="valid"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label for="city">City:</label>
+                      </td>
+                      <td class="flex">
+                        <input type="text" name="city" id="city" class="valid" value=""/>
+                      </td>
+                      <td>
+                        <label for="state">State:</label>
+                      </td>
+                      <td class="flex">
+                        <input type="text" name="state" id="state" class="valid" value=""/>
+                      </td>
+                      <td>
+                        <label for="zipcode">Zipcode:</label>
+                      </td>
+                      <td class="flex">
+                        <input
+                          type="text"
+                          name="zipcode"
+                          id="zipcode"
+                          class="valid"
+                          value=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                        <%-Gender %>
+                        <%-Relationship %>
+                      <td>
+                        <label for="DOB">Date of Birth:</label>
+                      </td>
+                      <td class="flex">
+                        <input type="date" name="DOB" id="DOB" class="valid" value=""/>
+                      </td>
+                    </tr>
+                  </table>
+                </fieldset>
+                <div class="btn">
+                    <p></p>
+                    <p class="nevbtn" id="next1">Next</p>
+                </div>
+            </div>
+            <div id="ED">
+                <fieldset>
+                  <legend style="font-weight: bold">Education Details</legend>
+                  <table>
+                    <input type="hidden" name="eid" id="sid" value="">
+                    <td colspan="6">
+                      <label for="ssc">SSC Result:</label>
+                    </td>
+                    <tr>
+                      <td>
+                        <input type="hidden" name="etype" id="SSC" value="SSC">
+                      </td>
+                      <%-SCourse %>
+                      <td>
+                        <label for="Year">Passing Year:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="Year" id="SPY" class="EDvalid" value=""/>
+                      </td>
+                      <td>
+                        <label for="Percentage">Percentage:</label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="Percentage"
+                          id="SPR"
+                          placeholder="Ex.98.9"
+                          class="EDvalid"
+                          value=""
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                  <hr />
+                  <table>
+                    <input type="hidden" name="eid" id="hid" value="">
+                    <td colspan="6">
+                      <label for="hsc">HSC/Diploma Result:</label>
+                    </td>
+                    <tr>
+                      <td>
+                        <input type="hidden" name="etype" id="HSC" value="HSC">
+                      </td>
+                      <%-SCourse %>
+                      <td>
+                        <label for="Year">Passing Year:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="Year" id="HPY" class="EDvalid" value=""/>
+                      </td>
+                      <td>
+                        <label for="Percentage">Percentage:</label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="Percentage"
+                          id="HPR"
+                          placeholder="Ex. 98.90"
+                          class="EDvalid"
+                          value=""
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                  <hr />
+                  <table>
+                    <input type="hidden" name="eid" id="bid" value="">
+                    <td colspan="6">
+                      <label for="btect">Bachelor Degree:</label>
+                    </td>
+                    <tr>
+                      <td>
+                        <input type="hidden" name="etype" id="BTECH" value="BTECH">
+                      </td>
+                      <%-CCourse %>
+                      <td>
+                        <label for="Year">Passing Year:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="Year" id="BPY" value=""/>
+                      </td>
+                      <td>
+                        <label for="Percentage">Percentage:</label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="Percentage"
+                          id="BPR"
+                          placeholder="Ex.98.90"
+                          value=""
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                  <hr />
+                  <table>
+                    <input type="hidden" name="eid" id="mid" value="">
+                    <td colspan="6">
+                      <label for="mtect">Master Degree:</label>
+                    </td>
+                    <tr>
+                      <td>
+                        <input type="hidden" name="etype" id="MTECH" value="MTECH">
+                      </td>
+                      <%-CCourse %>
+                      <td>
+                        <label for="Year">Passing Year:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="Year" id="MPY" value=""/>
+                      </td>
+                      <td>
+                        <label for="Percentage">Percentage:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="Percentage" id="MPR" placeholder="98.90" value=""/>
+                      </td>
+                    </tr>
+                  </table>
+                </fieldset>
+                <div class="btn">
+                    <p class="nevbtn" id="prev2">Prev</p>
+                    <p class="nevbtn" id="next2">Next</p>
+                </div>
+            </div>
+            <div id="WE">
+                <fieldset class="main">
+                  <legend style="font-weight: bold">Work Experience</legend>
+                  <input type="button" name="addrow" id="addrow" onclick="addExperienceDetailsRow()" value="Add More Row..." class="addbtn">
+                  <table id="workexp">
+                    <tr>
+                      <input type="hidden" name="wid" id="id1" value="">
+                      <td>
+                        <label for="companyname">Company Name:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="companyname" id="cname1" value=""/>
+                      </td>
+                      <td>
+                        <label for="designation">Designation:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="designation" id="designation1" value=""/>
+                      </td>
+                      <td>
+                        <label for="from">Starting Date:</label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="from"
+                          id="from1"
+                          placeholder="2024/01/01"
+                          value=""
+                        />
+                      </td>
+                      <td>
+                        <label for="to">Leaving Date:</label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="to"
+                          id="to1"
+                          placeholder="2024/01/01"
+                          value=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <input type="hidden" name="wid" id="id2" value="">
+                      <td>
+                        <label for="companyname">Company Name:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="companyname" id="cname2" />
+                      </td>
+                      <td>
+                        <label for="designation">Designation:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="designation" id="designation2" />
+                      </td>
+                      <td>
+                        <label for="from">Starting Date:</label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="from"
+                          id="from2"
+                          placeholder="2024/01/01"
+                        />
+                      </td>
+                      <td>
+                        <label for="to">Leaving Date:</label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="to"
+                          id="to2"
+                          placeholder="2024/01/01"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <input type="hidden" name="wid" id="id3" value="">
+                      <td>
+                        <label for="companyname">Company Name:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="companyname" id="cname3" />
+                      </td>
+                      <td>
+                        <label for="designation">Designation:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="designation" id="designation3" />
+                      </td>
+                      <td>
+                        <label for="from">Starting Date:</label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="from"
+                          id="from3"
+                          placeholder="2024/01/01"
+                        />
+                      </td>
+                      <td>
+                        <label for="to">Leaving Date:</label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="to"
+                          id="to3"
+                          placeholder="2024/01/01"
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                </fieldset>
+                <div class="btn">
+                    <p class="nevbtn" id="prev3">Prev</p>
+                    <p class="nevbtn" id="next3">Next</p>
+                </div>
+            </div>
+            <div id="LT">
+                <table class="LTsection">
+                  <tr class="LTsection">
+                    <td>
+                      <div>
+                        <fieldset>
+                          <legend style="font-weight: bold">Languages Known</legend>
+                          <table>
+                            <tr>
+                              <td>
+                                <p class="msg"></p>
+                                <p class="msg"></p>
+                              </td>
+                            </tr>
+                            <%-Languages %>
+                          </table>
+                        </fieldset>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <fieldset>
+                          <legend style="font-weight: bold">
+                            Technologies You Known
+                          </legend>
+                          <table>
+                            <tr>
+                              <td>
+                                <p class="msg"></p>
+                                <p class="msg"></p>
+                              </td>
+                            </tr>
+                            <%-Technology %>
+                          </table>
+                        </fieldset>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="btn">
+                    <p class="nevbtn" id="prev4">Prev</p>
+                    <p class="nevbtn" id="next4">Next</p>
+                </div>
+            </div>
+            <div id="RD">
+                <fieldset class="main">
+                  <legend style="font-weight: bold">Reference Contact</legend>
+                  <input type="button" name="addrow" id="addrow" onclick="addReferenceDetailsRow()" value="Add More Row..." class="addbtn">
+                  <table id="refcon">
+                    <tr>
+                      <input type="hidden" name="rid" id="id" value="">
+                      <td>
+                        <label for="rname">Name:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="rname" id="rname1" value=""/>
+                      </td>
+                      <td>
+                        <label for="cnum">Contact Number:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="cnum" id="cnum1" maxlength="10" value=""/>
+                      </td>
+                      <td>
+                        <label for="rel">Relation:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="rel" id="rel1" value=""/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <input type="hidden" name="rid" id="id" value="">
+                      <td>
+                        <label for="rname">Name:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="rname" id="rname2" />
+                      </td>
+                      <td>
+                        <label for="cnum">Contact Number:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="cnum" id="cnum2" maxlength="10" />
+                      </td>
+                      <td>
+                        <label for="rel">Relation:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="rel" id="rel2" />
+                      </td>
+                    </tr>
+                  </table>
+                </fieldset>
+                <div class="btn">
+                    <p class="nevbtn" id="prev5">Prev</p>
+                    <p class="nevbtn" id="next5">Next</p>
+                </div>
+            </div>
+            <div id="PD">
+                <fieldset>
+                  <legend style="font-weight: bold">Preference</legend>
+                  <table>
+                    <input type="hidden" name="pid" id="pid" value="">
+                    <tr>
+                        <%-PreferedCity %>
+                      <td>
+                        <label for="dept">Department:</label>
+                      </td>
+                      <td>
+                        <select name="dprt" id="dept">
+                          <option value="">Choose Department:</option>
+                          <optgroup label="Developer">
+                            <option value="SoftwareDeveloper" >
+                              Software Developer
+                            </option>
+                            <option value="WebeDeveloper" >Web Developer</option>
+                            <option value="AndroidDeveloper" >
+                              Android Developer
+                            </option>
+                            <option value="FlutterDeveloper" >
+                              Flutter Developer
+                            </option>
+                          </optgroup>
+                          <optgroup label="Design">
+                            <option value="UI/UX" >UI/UX</option>
+                            <option value="Figma" >Figma Designer</option>
+                            <option value="Canva" >Canva Designer</option>
+                          </optgroup>
+                          <optgroup label="Marketing">
+                            <option value="BDE" >Business Developer Executive</option>
+                            <option value="BA" >Business Analiyst</option>
+                            <option value="NetworkMarketing" >
+                              Network Marketing
+                            </option>
+                          </optgroup>
+                        </select>
+                        <p class="msg"></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label for="ectc">Expacted CTC:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="ectc" id="ectc" value=""/>
+                        <p class="msg"></p>
+                      </td>
+                      <td>
+                        <label for="NP">Notice Period:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="NP" id="NP" placeholder="In month" value=""/>
+                        <p class="msg"></p>
+                      </td>
+                      <td>
+                        <label for="cctc">Current CTC:</label>
+                      </td>
+                      <td>
+                        <input type="text" name="cctc" id="cctc" value=""/>
+                        <p class="msg"></p>
+                      </td>
+                    </tr>
+                  </table>
+                </fieldset>
+                <div class="btn">
+                  <p class="nevbtn" id="prev6">Prev</p>
+                  <input type="submit" name="submit" id="submit" value="SUBMIT" class="lbtn"/>
+                  <input type="reset" name="reset" id="reset" value="RESET" class="lbtn"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="/public/script/AJAX_Job_Application/script2.js"></script>
+</body>
+</html>

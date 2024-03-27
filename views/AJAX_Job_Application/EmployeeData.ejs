@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Table</title>
+</head>
+<body>
+    <div>
+        <h2>Wel Come!!</h2>
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <% for( let key in data[0]) { %>
+                    <td><%=key %></td>
+                <% } %>
+                <td>Action</td>
+            </tr>
+            <% for( let i = 0; i < data.length; i++ ) { %>
+                <tr>
+                    <% for(keys in data[i]) { %>
+                        <td><%=data[i][keys]%></td>
+                    <% } %>
+                    <td><a href="/userDetails/update/<%=data[i]['Candidate ID'] %>">Update</a></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+</body>
+</html>
