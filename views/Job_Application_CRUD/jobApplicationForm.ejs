@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application</title>
+    <style>
+      body {
+        font-size: 13px;
+      }
+      .btn {
+        padding-top: 15px;
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+      }
+      .flex {
+        display: flex;
+        gap: 5px;
+      }
+      p {
+        margin: 0;
+      }
+      .main{
+        position: relative;
+      }
+      .addbtn{
+        position: absolute;
+        right: 10px;
+        top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Job Application Form</h2>
+    </div>
+    <p id="text"></p>
+    <div>
+      <form action="/userDetails/validate" name="job-appllication" id="form" method="post">
+        <div>
+          <fieldset>
+            <legend style="font-weight: bold">Basic Details</legend>
+            <table>
+              <tr>
+                <input type="hidden" name="id" id="id" value="<%=data[0] %>">
+                <td>
+                  <label for="fname">First Name:</label>
+                </td>
+                <td class="flex">
+                  <input type="text" name="fname" id="fname" class="valid" value="<%=data[1]%>"/>
+                </td>
+                <td>
+                  <label for="lname">Last Name:</label>
+                </td>
+                <td class="flex">
+                  <input type="text" name="lname" id="lname" class="valid" value="<%=data[2]%>"/>
+                </td>
+                <td>
+                  <label for="designation">Designation:</label>
+                </td>
+                <td class="flex">
+                  <input
+                    type="text"
+                    name="Cdesignation"
+                    id="designation"
+                    class="valid"
+                    value="<%=data[3]%>"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="email">Email ID:</label>
+                </td>
+                <td class="flex">
+                  <input type="text" name="email" id="email" class="valid" value="<%=data[4]%>"/>
+                  <p class="msg"></p>
+                </td>
+                <td>
+                  <label for="pNo">Phone Number:</label>
+                </td>
+                <td class="flex">
+                  <input type="text" name="pNo" id="pNo" class="valid" value="<%=data[5] %>"/>
+                  <p class="msg"></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="address">Address:</label>
+                </td>
+                <td colspan="5">
+                  <textarea
+                    name="addr"
+                    id="addr"
+                    cols="100"
+                    rows="2"
+                    class="valid"
+                  ><%=data[6]%></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="city">City:</label>
+                </td>
+                <td class="flex">
+                  <input type="text" name="city" id="city" class="valid" value="<%=data[7] %>"/>
+                </td>
+                <td>
+                  <label for="state">State:</label>
+                </td>
+                <td class="flex">
+                  <input type="text" name="state" id="state" class="valid" value="<%=data[8]%>"/>
+                </td>
+                <td>
+                  <label for="zipcode">Zipcode:</label>
+                </td>
+                <td class="flex">
+                  <input
+                    type="text"
+                    name="zipcode"
+                    id="zipcode"
+                    class="valid"
+                    value="<%=data[9] %>"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <%-Gender%> <%-relationship %>
+                <td>
+                  <label for="DOB">Date of Birth:</label>
+                </td>
+                <td class="flex">
+                  <input type="date" name="DOB" id="DOB" class="valid" value="<%=data[12]%>"/>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </div>
+        <div>
+          <fieldset>
+            <legend style="font-weight: bold">Education Details</legend>
+            <table>
+              <input type="hidden" name="eid" id="id" value="<%=eddata[4] %>">
+              <td colspan="6">
+                <label for="ssc">SSC Result:</label>
+              </td>
+              <tr>
+                <td>
+                  <input type="hidden" name="etype" id="SSC" value="SSC">
+                </td>
+                <td>
+                  <label for="Sname">Name of School:</label>
+                </td>
+                <td>
+                  <input type="text" name="Sname" id="SNOB" class="valid" value="<%=eddata[0] %>"/>
+                </td>
+                <%-scourse %>
+                <td>
+                  <label for="Year">Passing Year:</label>
+                </td>
+                <td>
+                  <input type="text" name="Year" id="SPY" class="valid" value="<%=eddata[2] %>"/>
+                </td>
+                <td>
+                  <label for="Percentage">Percentage:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="Percentage"
+                    id="SPR"
+                    placeholder="Ex.98.9"
+                    class="valid"
+                    value="<%=eddata[3]%>"
+                  />
+                </td>
+              </tr>
+            </table>
+            <hr />
+            <table>
+              <input type="hidden" name="eid" id="id" value="<%=eddata[9] %>">
+              <td colspan="6">
+                <label for="hsc">HSC/Diploma Result:</label>
+              </td>
+              <tr>
+                <td>
+                  <input type="hidden" name="etype" id="HSC" value="HSC">
+                </td>
+                <td>
+                  <label for="Sname">Name of School:</label>
+                </td>
+                <td>
+                  <input type="text" name="Sname" id="HNOB" class="valid" value="<%=eddata[5]%>"/>
+                </td>
+                <%-scourse %>
+                <td>
+                  <label for="Year">Passing Year:</label>
+                </td>
+                <td>
+                  <input type="text" name="Year" id="HPY" class="valid" value="<%=eddata[7]%>"/>
+                </td>
+                <td>
+                  <label for="Percentage">Percentage:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="Percentage"
+                    id="HPR"
+                    placeholder="Ex. 98.90"
+                    class="valid"
+                    value="<%=eddata[8]%>"
+                  />
+                </td>
+              </tr>
+            </table>
+            <hr />
+            <table>
+              <input type="hidden" name="eid" id="id" value="<%=eddata[14] === 'undefineded' ? "" : eddata[14] %>">
+              <td colspan="6">
+                <label for="btect">Bachelor Degree:</label>
+              </td>
+              <tr>
+                <td>
+                  <input type="hidden" name="etype" id="BTECH" value="BTECH">
+                </td>
+                <%-ccourse %>
+                <td>
+                  <label for="Sname">University:</label>
+                </td>
+                <td>
+                  <input type="text" name="Sname" id="Buniversity" value="<%=eddata[10] === 'undefined' ? "" : eddata[10] %>"/>
+                </td>
+                <td>
+                  <label for="Year">Passing Year:</label>
+                </td>
+                <td>
+                  <input type="text" name="Year" id="BPY" value="<%=eddata[12] === 'undefined' ? "" : eddata[12] %>"/>
+                </td>
+                <td>
+                  <label for="Percentage">Percentage:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="Percentage"
+                    id="BPR"
+                    placeholder="Ex.98.90"
+                    value="<%=eddata[13] === 'undefined' ? "" : eddata[13] %>"
+                  />
+                </td>
+              </tr>
+            </table>
+            <hr />
+            <table>
+              <input type="hidden" name="eid" id="id" value="<%=eddata[19] === 'undefined' ? "": eddata[19] %>">
+              <td colspan="6">
+                <label for="mtect">Master Degree:</label>
+              </td>
+              <tr>
+                <td>
+                  <input type="hidden" name="etype" id="MTECH" value="MTECH">
+                </td>
+                <%-ccourse %>
+                <td>
+                  <label for="Sname">University:</label>
+                </td>
+                <td>
+                  <input type="text" name="Sname" id="Muniversity" value="<%=eddata[15] === 'undefined' ? "" : eddata[15] %>"/>
+                </td>
+                <td>
+                  <label for="Year">Passing Year:</label>
+                </td>
+                <td>
+                  <input type="text" name="Year" id="MPY" value="<%=eddata[17] === 'undefined' ? "" : eddata[17] %>"/>
+                </td>
+                <td>
+                  <label for="Percentage">Percentage:</label>
+                </td>
+                <td>
+                  <input type="text" name="Percentage" id="MPR" placeholder="98.90" value="<%=eddata[18] === 'undefined' ? "" : eddata[18] %>"/>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </div>
+        <div>
+          <fieldset class="main">
+            <legend style="font-weight: bold">Work Experience</legend>
+            <input type="button" name="addrow" id="addrow" onclick="addExperienceDetailsRow()" value="Add More Row..." class="addbtn">
+            <table id="workexp">
+              <tr>
+                <input type="hidden" name="wid" id="id" value="<%=wddata[4] === 'undefineded' ? "" : wddata[4]%>">
+                <td>
+                  <label for="companyname">Company Name:</label>
+                </td>
+                <td>
+                  <input type="text" name="companyname" id="cname1" value="<%=wddata[0] === 'undefineded' ? "" : wddata[0] %>"/>
+                </td>
+                <td>
+                  <label for="designation">Designation:</label>
+                </td>
+                <td>
+                  <input type="text" name="designation" id="designation1" value="<%=wddata[1] === 'undefineded' ? "" : wddata[1] %>"/>
+                </td>
+                <td>
+                  <label for="from">Starting Date:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="from"
+                    id="from1"
+                    placeholder="2024/01/01"
+                    value="<%=wddata[2] === 'undefineded' ? "" : wddata[2] %>"
+                  />
+                </td>
+                <td>
+                  <label for="to">Leaving Date:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="to"
+                    id="to1"
+                    placeholder="2024/01/01"
+                    value="<%=wddata[3] === 'undefineded' ? "" : wddata[3] %>"
+                  />
+                </td>
+              </tr>
+              <!-- <tr>
+                <td>
+                  <label for="companyname">Company Name:</label>
+                </td>
+                <td>
+                  <input type="text" name="companyname" id="cname2" />
+                </td>
+                <td>
+                  <label for="designation">Designation:</label>
+                </td>
+                <td>
+                  <input type="text" name="designation" id="designation2" />
+                </td>
+                <td>
+                  <label for="from">Starting Date:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="from"
+                    id="from2"
+                    placeholder="2024/01/01"
+                  />
+                </td>
+                <td>
+                  <label for="to">Leaving Date:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="to"
+                    id="to2"
+                    placeholder="2024/01/01"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="companyname">Company Name:</label>
+                </td>
+                <td>
+                  <input type="text" name="companyname" id="cname3" />
+                </td>
+                <td>
+                  <label for="designation">Designation:</label>
+                </td>
+                <td>
+                  <input type="text" name="designation" id="designation3" />
+                </td>
+                <td>
+                  <label for="from">Starting Date:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="from"
+                    id="from3"
+                    placeholder="2024/01/01"
+                  />
+                </td>
+                <td>
+                  <label for="to">Leaving Date:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="to"
+                    id="to3"
+                    placeholder="2024/01/01"
+                  />
+                </td>
+              </tr> -->
+            </table>
+          </fieldset>
+        </div>
+        <div>
+          <table>
+            <tr>
+              <td>
+                <div>
+                  <fieldset>
+                    <legend style="font-weight: bold">Languages Known</legend>
+                    <table>
+                      <tr>
+                        <td>
+                          <p class="msg"></p>
+                          <p class="msg"></p>
+                        </td>
+                      </tr>
+                      <%-language %>
+                    </table>
+                  </fieldset>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <fieldset>
+                    <legend style="font-weight: bold">
+                      Technologies You Known
+                    </legend>
+                    <table>
+                      <tr>
+                        <td>
+                          <p class="msg"></p>
+                          <p class="msg"></p>
+                        </td>
+                        <%-technology %>
+                      </tr>
+                    </table>
+                  </fieldset>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <fieldset class="main">
+            <legend style="font-weight: bold">Reference Contact</legend>
+            <input type="button" name="addrow" id="addrow" onclick="addReferenceDetailsRow()" value="Add More Row..." class="addbtn">
+            <table id="refcon">
+              <tr>
+                <input type="hidden" name="rid" id="id" value="<%=rddata[3] === undefined ? "" : rddata[3]%>">
+                <td>
+                  <label for="rname">Name:</label>
+                </td>
+                <td>
+                  <input type="text" name="rname" id="rname1" value="<%=rddata[0] %>"/>
+                </td>
+                <td>
+                  <label for="cnum">Contact Number:</label>
+                </td>
+                <td>
+                  <input type="text" name="cnum" id="cnum1" maxlength="10" value="<%=rddata[1] %>"/>
+                </td>
+                <td>
+                  <label for="rel">Relation:</label>
+                </td>
+                <td>
+                  <input type="text" name="rel" id="rel1" value="<%=rddata[2] %>"/>
+                </td>
+              </tr>
+              <!-- <tr>
+                <td>
+                  <label for="rname">Name:</label>
+                </td>
+                <td>
+                  <input type="text" name="rname" id="rname2" />
+                </td>
+                <td>
+                  <label for="cnum">Contact Number:</label>
+                </td>
+                <td>
+                  <input type="text" name="cnum" id="cnum2" maxlength="10" />
+                </td>
+                <td>
+                  <label for="rel">Relation:</label>
+                </td>
+                <td>
+                  <input type="text" name="rel" id="rel2" />
+                </td>
+              </tr> -->
+            </table>
+          </fieldset>
+        </div>
+        <div>
+          <fieldset>
+            <legend style="font-weight: bold">Preference</legend>
+            <table>
+              <input type="hidden" name="pid" id="id" value="<%=pddata[0] %>">
+              <tr>
+                <%-preferedcity %>
+                <td>
+                  <label for="dept">Department:</label>
+                </td>
+                <td>
+                  <select name="dprt" id="dept">
+                    <option value="">Choose Department:</option>
+                    <optgroup label="Developer">
+                      <option value="SoftwareDeveloper" <%=pddata[2] == "SoftwareDeveloper" ? 'selected' : "" %>>
+                        Software Developer
+                      </option>
+                      <option value="WebeDeveloper" <%=pddata[2] == "WebeDeveloper" ? 'selected' : "" %>>Web Developer</option>
+                      <option value="AndroidDeveloper" <%=pddata[2] == "AndroidDeveloper" ? 'selected' : "" %>>
+                        Android Developer
+                      </option>
+                      <option value="FlutterDeveloper" <%=pddata[2] == "FlutterDeveloper" ? 'selected' : "" %>>
+                        Flutter Developer
+                      </option>
+                    </optgroup>
+                    <optgroup label="Design">
+                      <option value="UI/UX" <%=pddata[2] == "UI/UX" ? 'selected' : "" %>>UI/UX</option>
+                      <option value="Figma" <%=pddata[2] == "Figma" ? 'selected' : "" %>>Figma Designer</option>
+                      <option value="Canva" <%=pddata[2] == "Canva" ? 'selected' : "" %>>Canva Designer</option>
+                    </optgroup>
+                    <optgroup label="Marketing">
+                      <option value="BDE" <%=pddata[2] == "BDE" ? 'selected' : "" %>>Business Developer Executive</option>
+                      <option value="BA" <%=pddata[2] == "BA" ? 'selected' : "" %>>Business Analiyst</option>
+                      <option value="NetworkMarketing" <%=pddata[2] == "NetworkMarketing" ? 'selected' : "" %>>
+                        Network Marketing
+                      </option>
+                    </optgroup>
+                  </select>
+                  <p class="msg"></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="NP">Notice Period:</label>
+                </td>
+                <td>
+                  <input type="text" name="NP" id="NP" placeholder="In month" value="<%=pddata[4] === undefined ? "" : pddata[4] %>"/>
+                  <p class="msg"></p>
+                </td>
+                <td>
+                  <label for="ectc">Expacted CTC:</label>
+                </td>
+                <td>
+                  <input type="text" name="ectc" id="ectc" class="valid" value="<%=pddata[3] %>"/>
+                </td>
+                <td>
+                  <label for="cctc">Current CTC:</label>
+                </td>
+                <td>
+                  <input type="text" name="cctc" id="cctc" value="<%=pddata[5] === undefined ? "" : pddata[5] %>"/>
+                  <p class="msg"></p>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </div>
+        <div class="btn">
+          <input type="submit" name="submit" id="submit" value="SUBMIT" />
+          <input type="reset" name="reset" id="reset" value="RESET" />
+        </div>
+      </form>
+    </div>
+    <script>
+      let msg = document.getElementsByClassName("msg");
+      let form = document.querySelector("form");
+
+      form.addEventListener("submit", (e) => {
+        if (!validate()) {
+          e.preventDefault();
+        } else {
+          validate();
+        }
+      });
+
+      let valid = document.querySelectorAll(".valid");
+      valid.forEach((e) => {
+        const p = document.createElement("p");
+        e.addEventListener("focus", () => {
+          e.insertAdjacentElement("afterend", p);
+          p.innerHTML = "Feild Required!";
+          p.style.color = "red";
+        });
+
+        e.addEventListener("blur", () => {
+          p.innerHTML = "";
+        });
+      });
+
+      function validate() {
+        let isvalid = true;
+        valid.forEach((e) => {
+          if (e.value === "") {
+            if(e.parentElement.lastElementChild.nodeName !== "P"){
+              const p = document.createElement("p");
+              e.insertAdjacentElement("afterend", p);
+              p.classList = "err"
+              p.innerHTML = "Feild Required!";
+              p.style.color = "red";
+              e.addEventListener("focus", () => {
+                if (e.value === "") {
+                  e.parentElement.removeChild(e.parentElement.children[1]);
+                }
+              });
+              isvalid = false;
+            }
+          }
+        });
+
+        let cname = document.getElementsByName('companyname');
+        let designation = document.getElementsByName('designation');
+        let from = document.getElementsByName('from');
+        let to = document.getElementsByName('to');
+
+
+        for(let i = 0; i < cname.length; i++){
+          if(cname[i].value !== ""){
+            if(designation[i].value === "" || from[i].value === "" || to[i].value === ""){
+              if(designation[i].parentElement.lastElementChild.nodeName !== "P" || from[i].parentElement.lastElementChild.nodeName !== "P" || to[i].parentElement.lastElementChild.nodeName !== "P"){
+                let p1 = document.createElement('p');
+                let p2 = document.createElement('p');
+                let p3 = document.createElement('p');
+                p1.textContent = "Feild Required!"
+                p1.style.color = "red";
+                p1.classList = `emsg${i}`;
+                p2.textContent = "Feild Required!"
+                p2.style.color = "red";
+                p2.classList = `emsg${i}`;
+                p3.textContent = "Feild Required!"
+                p3.style.color = "red";
+                p3.classList = `emsg${i}`;
+                designation[i].insertAdjacentElement('afterend', p1)
+                from[i].insertAdjacentElement('afterend', p2)
+                to[i].insertAdjacentElement('afterend', p3)
+                designation[i].addEventListener('focus', ()=>{
+                  designation[i].parentElement.removeChild(designation[i].parentElement.children[1]);
+                })
+                from[i].addEventListener('focus',()=>{
+                  from[i].parentElement.removeChild(from[i].parentElement.children[1]);
+                })
+                to[i].addEventListener('focus', ()=>{
+                  to[i].parentElement.removeChild(to[i].parentElement.children[1]);
+                })
+                isvalid = false;
+              }  
+            }
+          } 
+        }
+
+        let email = document.getElementById("email");
+        let emailregx = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+        if (!emailregx.test(email.value.toLowerCase())) {
+          msg[0].innerHTML = "Enter valid Email!";
+          msg[0].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[0].innerHTML = "";
+        }
+
+        let pNo = document.getElementById("pNo");
+        let pNoregx = /^(\d){10}$/;
+        if (!pNoregx.test(pNo.value)) {
+          msg[1].innerHTML = "Enter Valid Number!";
+          msg[1].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[1].innerHTML = "";
+        }
+
+        let male = document.getElementById("male");
+        let female = document.getElementById("female");
+        if (!male.checked && !female.checked) {
+          msg[2].innerHTML = "Select any one!";
+          msg[2].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[2].innerHTML = "";
+        }
+
+        let course = document.getElementsByName('Course');
+        if(course[0].value === ""){
+          msg[4].innerHTML = "Select Course!";
+          msg[4].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[4].innerHTML = "";
+        }
+
+        if(course[1].value === ""){
+          msg[5].innerHTML = "Select course!";
+          msg[5].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[5].innerHTML = "";
+        }
+
+        if(course[2].value !== ""){
+          let BU = document.getElementById('Buniversity');
+          let BPY = document.getElementById('BPY');
+          let BPR = document.getElementById('BPR');
+          if(BU.value === ""){
+            if(BU.parentElement.lastElementChild.nodeName !== "P"){
+              let p = document.createElement('p');
+              p.textContent = "Feild Required!"
+              p.style.color = "red";
+              p.classList = "errmsg";
+              BU.insertAdjacentElement('afterend', p)
+              BU.addEventListener("focus", ()=>{
+                if(BU.value === ""){
+                  BU.parentElement.removeChild(BU.parentElement.children[1]);
+                }
+              })
+              isvalid = false;
+            }
+          } 
+
+          if(BPY.value === ""){
+            if(BPY.parentElement.lastElementChild.nodeName !== "P"){
+              let p = document.createElement('p');
+              p.textContent = "Feild Required!"
+              p.style.color = "red";
+              p.classList = "errmsg";
+              BPY.insertAdjacentElement('afterend', p)
+              BPY.addEventListener("focus", ()=>{
+                if(BPY.value === ""){
+                  BPY.parentElement.removeChild(BPY.parentElement.children[1]);
+                }
+              })
+              isvalid = false;
+            }
+          } 
+
+          if(BPR.value === ""){
+            if(BPR.parentElement.lastElementChild.nodeName !== "P"){
+              let p = document.createElement('p');
+              p.textContent = "Feild Required!"
+              p.style.color = "red";
+              p.classList = "errmsg";
+              BPR.insertAdjacentElement('afterend', p)
+              BPR.addEventListener("focus", ()=>{
+                if(BPR.value === ""){
+                  BPR.parentElement.removeChild(BPR.parentElement.children[1]);
+                }
+              })
+              isvalid = false;
+            }
+          } 
+        }
+
+      
+        if(course[3].value !== ""){
+          let MU = document.getElementById('Muniversity');
+          let MPY = document.getElementById('MPY');
+          let MPR = document.getElementById('MPR');
+          if(MU.value === ""){
+            if(MU.parentElement.lastElementChild.nodeName !== "P"){
+              let p = document.createElement('p');
+              p.textContent = "Feild Required!"
+              p.style.color = "red";
+              p.classList = "errmsg2";
+              MU.insertAdjacentElement('afterend', p)
+              MU.addEventListener("focus", ()=>{
+                if(MU.value === ""){
+                  MU.parentElement.removeChild(MU.parentElement.children[1]);
+                }
+              })
+              isvalid = false;
+            }
+          } 
+
+          if(MPY.value === ""){
+            if(MPY.parentElement.lastElementChild.nodeName !== "P"){
+              let p = document.createElement('p');
+              p.textContent = "Feild Required!"
+              p.style.color = "red";
+              p.classList = "errmsg2";
+              MPY.insertAdjacentElement('afterend', p)
+              MPY.addEventListener("focus", ()=>{
+                if(MPY.value === ""){
+                  MPY.parentElement.removeChild(MPY.parentElement.children[1]);
+                }
+              })
+              isvalid = false;
+            }
+          }
+
+          if(MPR.value === ""){
+            if(MPR.parentElement.lastElementChild.nodeName !== "P"){
+              let p = document.createElement('p');
+              p.textContent = "Feild Required!"
+              p.style.color = "red";
+              p.classList = "errmsg2";
+              MPR.insertAdjacentElement('afterend', p)
+              MPR.addEventListener("focus", ()=>{
+                if(MPR.value === ""){
+                  MPR.parentElement.removeChild(MPR.parentElement.children[1]);
+                }
+              })
+              isvalid = false;
+            }
+          }
+        }
+
+        let relationship = document.getElementById("Relationship");
+        if (relationship.value === "") {
+          msg[3].innerHTML = "Select Status!";
+          msg[3].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[3].innerHTML = "";
+        }
+
+        let hindi = document.getElementById("hindi");
+        let english = document.getElementById("english");
+        let gujrati = document.getElementById("gujrati");
+
+        if (!hindi.checked && !english.checked && !gujrati.checked) {
+          msg[8].innerHTML = "Select Language!";
+          msg[8].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[8].innerHTML = "";
+        }
+
+        if (hindi.checked) {
+          let read = document.getElementById("lnglevel01");
+          let write = document.getElementById("lnglevel02");
+          let speak = document.getElementById("lnglevel03");
+
+          isvalid = checkLevel(read, write, speak, isvalid);
+        }
+
+        if (english.checked) {
+          let read = document.getElementById("lnglevel21");
+          let write = document.getElementById("lnglevel22");
+          let speak = document.getElementById("lnglevel23");
+
+          isvalid = checkLevel(read, write, speak, isvalid);
+        }
+
+        if (gujrati.checked) {
+          let read = document.getElementById("lnglevel11");
+          let write = document.getElementById("lnglevel12");
+          let speak = document.getElementById("lnglevel13");
+
+          isvalid = checkLevel(read, write, speak, isvalid);
+        }
+
+        let php = document.getElementById("PHP");
+        let mysql = document.getElementById("MySQL");
+        let laravel = document.getElementById("Laravel");
+        let nodejs = document.getElementById("Nodejs");
+        let dotnet = document.getElementById("dotnet");
+        let reactjs = document.getElementById("Reactjs");
+
+        if (
+          !php.checked &&
+          !mysql.checked &&
+          !laravel.checked &&
+          !nodejs.checked &&
+          !dotnet.checked &&
+          !reactjs.checked
+        ) {
+          msg[10].innerHTML = "Select Technologies!";
+          msg[10].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[10].innerHTML = "";
+        }
+
+        if (php.checked) {
+          let beginer = document.getElementById("level01");
+          let mediator = document.getElementById("level02");
+          let expert = document.getElementById("level03");
+
+          isvalid = checktechLevel(beginer, mediator, expert, isvalid);
+        }
+
+        if (mysql.checked) {
+          let beginer = document.getElementById("level11");
+          let mediator = document.getElementById("level12");
+          let expert = document.getElementById("level13");
+
+          isvalid = checktechLevel(beginer, mediator, expert, isvalid);
+        }
+
+        if (laravel.checked) {
+          let beginer = document.getElementById("level21");
+          let mediator = document.getElementById("level22");
+          let expert = document.getElementById("level23");
+
+          isvalid = checktechLevel(beginer, mediator, expert, isvalid);
+        }
+
+        if (nodejs.checked) {
+          let beginer = document.getElementById("level31");
+          let mediator = document.getElementById("level32");
+          let expert = document.getElementById("level33");
+
+          isvalid = checktechLevel(beginer, mediator, expert, isvalid);
+        }
+
+        if (dotnet.checked) {
+          let beginer = document.getElementById("level41");
+          let mediator = document.getElementById("level42");
+          let expert = document.getElementById("level43");
+
+          isvalid = checktechLevel(beginer, mediator, expert, isvalid);
+        }
+
+        if (reactjs.checked) {
+          let beginer = document.getElementById("level51");
+          let mediator = document.getElementById("level52");
+          let expert = document.getElementById("level53");
+
+          isvalid = checktechLevel(beginer, mediator, expert, isvalid);
+        }
+
+        let prefcity = document.getElementById("PreferedLocation");
+
+        if (prefcity.value === "") {
+          msg[12].innerHTML = "Select Prefered City!";
+          msg[12].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[12].innerHTML = "";
+        }
+
+        let department = document.getElementById("dept");
+
+        if (department.value === "") {
+          msg[13].innerHTML = "Select Department!";
+          msg[13].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[13].innerHTML = "";
+        }
+
+        let we = document.getElementById("cname1");
+        let np = document.getElementById("NP");
+        let currctc = document.getElementById("cctc");
+        let ctcreg = /[0-9]$/;
+        let npregx = /^([0-9]){1,2}$/;
+        if (we.value !== "") {
+          if (np.value === "") {
+            msg[14].innerHTML = "Feild Required!";
+            msg[14].style.color = "red";
+            isvalid = false;
+          } else if (!npregx.test(np.value)) {
+            msg[14].innerHTML = "Month Enter in number only";
+            msg[14].style.color = "red";
+            isvalid = false;
+          } else if (Number(np.value) > 12) {
+            msg[14].innerHTML = "Month not more than 12!";
+            msg[14].style.color = "red";
+            isvalid = false;
+          }
+          if (currctc.value === "") {
+            msg[15].innerHTML = "Feild Required!";
+            msg[15].style.color = "red";
+            isvalid = false;
+          } else if (!ctcreg.test(currctc.value)) {
+            msg[15].innerHTML = "CTC Enter in Number only!";
+            msg[15].style.color = "red";
+            isvalid = false;
+          }
+        }
+
+
+
+        if (isvalid === false) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      function checkLevel(read, write, speak, isvalid) {
+        if (!read.checked && !write.checked && !speak.checked) {
+          msg[9].innerHTML = "Select Language Level!";
+          msg[9].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[9].innerHTML = "";
+        }
+        return isvalid;
+      }
+
+      function checktechLevel(beginer, mediator, expert, isvalid) {
+        if (!beginer.checked && !mediator.checked && !expert.checked) {
+          msg[11].innerHTML = "Select Technology Level!";
+          msg[11].style.color = "Red";
+          isvalid = false;
+        } else {
+          msg[11].innerHTML = "";
+        }
+        return isvalid;
+      }
+      
+      function addExperienceDetailsRow(){
+        const workexptable = document.getElementById('workexp');
+        let tr = document.createElement('tr');
+        console.log(tr);
+        tr.innerHTML = `<td>
+                  <label for="companyname">Company Name:</label>
+                </td>
+                <td>
+                  <input type="text" name="companyname" id="cname1" />
+                </td>
+                <td>
+                  <label for="designation">Designation:</label>
+                </td>
+                <td>
+                  <input type="text" name="designation" id="designation1" />
+                </td>
+                <td>
+                  <label for="from">Starting Date:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="from"
+                    id="from1"
+                    placeholder="2024/01/01"
+                  />
+                </td>
+                <td>
+                  <label for="to">Leaving Date:</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="to"
+                    id="to1"
+                    placeholder="2024/01/01"
+                  />
+                </td>`
+        workexptable.appendChild(tr);
+      }
+    
+      function addReferenceDetailsRow(){
+        const refTable = document.getElementById('refcon');
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>
+                  <label for="name">Name:</label>
+                </td>
+                <td>
+                  <input type="text" name="rname" id="rname1" />
+                </td>
+                <td>
+                  <label for="cnum">Contact Number:</label>
+                </td>
+                <td>
+                  <input type="text" name="cnum" id="cnum1" maxlength="10" />
+                </td>
+                <td>
+                  <label for="rel">Relation:</label>
+                </td>
+                <td>
+                  <input type="text" name="rel" id="rel1" />
+                </td>`
+        refTable.appendChild(tr);
+      }
+    </script>
+  </body>
+</html>

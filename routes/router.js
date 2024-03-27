@@ -10,6 +10,9 @@ const { searchData, dataRetrivebyID } = require('../controllers/Searching/search
 const { fieldData } = require('../controllers/Searching/searchbyfield');
 const { DelimetersearchData, getData } = require('../controllers/Delimeter_Search/dataController');
 const { getData2 } = require('../controllers/Delimeter_Search/dataController2');
+const { mainForm } = require('../controllers/Job_Application_CRUD/mainForm');
+const { validation } = require('../controllers/Job_Application_CRUD/validate');
+const { updateForm } = require('../controllers/Job_Application_CRUD/update');
 const router =  express.Router();
 
 
@@ -100,4 +103,14 @@ router.get('/userDetails/delimetersearch', DelimetersearchData)
 router.post('/userDetails/searchdata', getData)
 // router.post('/userDetails/searchdata', getData2)
  
+router.get('/userDetils/jobapplication', authrate, (req,res)=>{
+    res.render('Job_Application_CRUD/jobApplicationForm')
+});
+router.get('/userDetails/validateMsg', authrate, (req,res)=>{
+    res.send('Please Fill Required Field! OR Please Check emailID OR Please chaeck Phone Number');
+})
+router.get('/userDetails/generate', mainForm);
+router.post('/userDetails/validate', validation);
+router.get('/userDetails/updateForm', updateForm);
+
 module.exports = router;
