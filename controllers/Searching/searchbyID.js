@@ -6,7 +6,7 @@ exports.searchData = (req,res)=>{
     res.render('Searching/searchData') 
 }
 
-exports.dataRetrive = async (req,res)=>{ 
+exports.dataRetrivebyID = async (req,res)=>{ 
     try {
         const dataCount = 200;
         let totalPage = Math.floor(dataCount / process.env.TOTAL_EDATA);

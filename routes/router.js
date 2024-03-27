@@ -6,6 +6,8 @@ const { dataRetrive } = require('../controllers/MySQL_Grid/stdController');
 const { pagination } = require('../controllers/Pagination/pageController');
 const { attendence } = require('../controllers/Attendence_Record/attendence');
 const { examRecord, reportCard } = require('../controllers/Exam_Record/examController');
+const { searchData, dataRetrivebyID } = require('../controllers/Searching/searchbyID');
+const { fieldData } = require('../controllers/Searching/searchbyfield');
 const router =  express.Router();
 
 
@@ -88,6 +90,8 @@ router.get('/userDetails/attendence',authrate, attendence)
 router.get('/userDetails/examrecord', authrate, examRecord);
 router.get('/userDetails/report', authrate, reportCard);
 
-router.get('/userDetails/search',)
+router.get('/userDetails/searching',authrate, searchData);
+router.get('/userDetails/search', dataRetrivebyID);
+router.get('/userDetails/data', fieldData);
 
 module.exports = router;

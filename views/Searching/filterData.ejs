@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filter Data</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="/public/css/Searching/style.css">
 </head>
 <body>
     <h2>Raj Koradiya</h2>
     <div id="filter-id">
-        <form action="/search" method="get">
+        <form action="/userDetails/search" method="get">
             <input type="text" name="sid" id="sid" tabindex="0" placeholder="Student ID">
             <input type="submit" name="submit" id="submit" value="GO">
         </form>
@@ -65,7 +65,7 @@
         const go = document.getElementById('go')
         const selectedOP = document.getElementById('operator')
         go.addEventListener('click',()=>{
-            window.location.href = window.location.origin +"/data?fname="+fname.value+"&lname="+lname.value+"&city="+city.value+"&op="+selectedOP.value;
+            window.location.href = window.location.origin +"/userDetails/data?fname="+fname.value+"&lname="+lname.value+"&city="+city.value+"&op="+selectedOP.value;
         })
     </script>
 </body>
