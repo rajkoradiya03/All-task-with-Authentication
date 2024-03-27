@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+}
+
+.tableform{
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+}
+
+.subbtn{
+    padding-top: 50px;
+    text-align: center;
+}
+
+.subbtn2{
+    padding-top: 10px;
+    text-align: center;
+}
+
+.subbtn2 a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}

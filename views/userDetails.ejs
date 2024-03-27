@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <style>
+        .btn{
+            width: 100px;
+        }
+    </style>
+    <style>
+        p{
+            color: black;
+            width: max-content;
+        }
+        h2{
+            margin-top: 20px;
+        }
+        .list{
+            margin-top: 50px;
+            width: 800px;
+        }
+        .subdiv{
+            display: flex;
+            flex-direction: column;
+            width: max-content;
+            float: right;
+            gap: 5px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            color: crimson;
+        }
+        h3{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <a href="/logout" class="btn" id="logout">LogOut</a>
+        </div>
+        <div>
+            <h2>Name: <%=data.fname %> <%=data.lname %></h2>
+            <p>Email: <%=data.email %></p>
+            <p>User Name: <%=data.username %></p>   
+        </div>
+        <div class="list">
+            <div class="subdiv"> 
+                <h3>Practice List:</h3>
+                <a href="/userDetails/dynamictable">1. Dynamic Table</a>
+                <a href="/userDetails/kukucube">2. KuKu Cube</a>
+                <a href="/userDetails/tictactoe">3. Tic Tac Toe</a>
+                <a href="/userDetails/eventpractice">4. All Event Practice</a>
+                <a href="/userDetails/form">5. Express Form Practice</a>
+                <a href="/userDetails/studentdata">6. Grid</a>
+                <a href="/userDetails/count">7. Pagination</a>
+                <a href="/userDetails/attendence">8. Attendence Record</a>
+                <a href="/userDetails/examrecord">9. Exam Result</a>
+                <a href="">10. Searching in table</a>
+                <a href="">11. Delimeter Search</a>
+                <a href="">12. Job Application CRUD</a>
+                <a href="">13. Job Application CRUD with AJAX</a>
+            </div>
+        </div>
+    </div>
+    <script src="/public/script/logout.js"></script>
+</body>
+</html>

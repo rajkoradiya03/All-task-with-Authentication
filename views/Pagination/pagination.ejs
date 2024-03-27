@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+    <link rel="stylesheet" href="/public/css/Pagination/style.css">
+</head>
+<body>
+    <select name="orderby" id="orderby">
+        <option value=""><%=orderby === undefined ? "---select---" : orderby %></option>
+        <option value="s_rollno">Rollno</option>
+        <option value="s_fname">First Name</option>
+        <option value="s_lname">Last Name</option>
+        <option value="s_city">City</option>
+        <option value="s_birthday">Birth Date</option>  
+    </select>
+    <div class="page">
+        <p>Page No. <%=page %></p>
+    </div>
+    <table>
+        <tr>
+            <% for(keys in data[0]) { %>
+                <td id="<%=keys%>"><%=keys%> <img src="<%=imgsrc%>" height="10" width="10"></img></td>
+            <% } %>
+        </tr>
+        <% for( let i = 0; i < data.length; i++ ) { %>
+            <tr>
+                <% for(keys in data[i]) { %>
+                    <td><%=data[i][keys]%></td>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+    <% if (orderby === undefined && order === undefined) { %>
+        <div class="page-con">
+            <a class="<%=page == 1 ? 'disable' : ""%>" href="/userDetails/count?page=1" id="start"><<</a>
+            <a class="<%=page <= 1 ? 'disable': "" %>" href="/userDetails/count?page=<%=page-1 %>" id="dec"><</a>
+            <p><%=page %></p>
+            <a class="<%=page >= totalpage ? 'disable' : "" %>" href="/userDetails/count?page=<%=page+1 %>" id="inr">></a>
+            <a class="<%=page == totalpage ? 'disable' : "" %>" href="/userDetails/count?page=<%=totalpage %>" id="end">>></a>   
+        </div>
+    <% } else if(order === undefined){ %> 
+        <div class="page-con">
+            <a class="<%=page == 1 ? 'disable' : ""%>" href="/userDetails/count?page=1&orderby=<%=orderby%>" id="start"><<</a>
+            <a class="<%=page <= 1 ? 'disable': "" %>" href="/userDetails/count?page=<%=page-1 %>&orderby=<%=orderby %>" id="dec"><</a>
+            <p><%=page %></p>
+            <a class="<%=page >= totalpage ? 'disable' : "" %>" href="/userDetails/count?page=<%=page+1 %>&orderby=<%=orderby %>" id="inr">></a>
+            <a class="<%=page == totalpage ? 'disable' : "" %>" href="/userDetails/count?page=<%=totalpage %>&orderby=<%=orderby %>" id="end">>></a>   
+        </div>
+    <% } else { %>
+        <div class="page-con">
+            <a class="<%=page == 1 ? 'disable' : ""%>" href="/userDetails/count?page=1&orderby=<%=orderby%>&order=<%=order %>" id="start"><<</a>
+            <a class="<%=page <= 1 ? 'disable': "" %>" href="/userDetails/count?page=<%=page-1 %>&orderby=<%=orderby %>&order=<%=order %>" id="dec"><</a>
+            <p><%=page %></p>
+            <a class="<%=page >= totalpage ? 'disable' : "" %>" href="/userDetails/count?page=<%=page+1 %>&orderby=<%=orderby %>&order=<%=order %>" id="inr">></a>
+            <a class="<%=page == totalpage ? 'disable' : "" %>" href="/userDetails/count?page=<%=totalpage %>&orderby=<%=orderby %>&order=<%=order %>" id="end">>></a>   
+        </div>
+    <% } %>
+</body>
+<script>
+    const select = document.getElementById('orderby')
+    select.addEventListener('change', ()=>{
+        window.location.href = window.location.origin + window.location.pathname + "?page=1&orderby="+select.value;
+    })
+
+    const col = document.querySelectorAll('td');
+    let order;
+    col.forEach((td)=>{
+        td.addEventListener("click", ()=>{
+            window.location.href = window.location.origin + window.location.pathname + "?page=1&orderby="+td.id+"&"+(window.location.search.split('&')[2] === "order=asc" ? "order=desc" : "order=asc");
+        })
+    })
+</script>
+</html>

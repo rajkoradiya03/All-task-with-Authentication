@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events Pactice</title>
+    <style>
+      body {
+        font-size: 13px;
+      }
+      .main-table {
+        display: flex;
+        justify-content: center;
+      }
+      td {
+        padding: 8px;
+      }
+      .droptarget {
+        height: 30px;
+        width: 100px;
+        border: 1px solid black;
+        text-align: center;
+      }
+      #onclick{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-table">
+      <table style="border: 2px solid black" border="1">
+        <tr>
+          <td>
+            <p
+              id="onclick"
+              style="outline: none; text-decoration: none; color: black"
+              >OnClick</p>
+          </td>
+          <td>
+            <label for="Name">Name:</label>
+            <input
+              type="text"
+              name="blur"
+              id="blur"
+            />
+          </td>
+          <td>
+            <label for="Name">Name:</label>
+            <input type="text" name="focus" id="focus" />
+          </td>
+          <td>
+            <input type="radio" name="change" id="change1" value="click1" />
+            <label for="change1">click1</label>
+            <input type="radio" name="change" id="change2" value="click2" />
+            <label for="change2">click2</label>
+          </td>
+          <td>
+            <p id="contextChange">Context Menu is disable.</p>
+          </td>
+          <td>
+            <select name="bike" id="bike">
+              <option value="Kawasaki Ninja">H2R</option>
+              <option value="palser">Palser</option>
+              <option value="Royal Enfeild">Royal Enfeild 350 classic</option>
+              <option value="Royal Enfeild GT">Royal Enfeild GT 350</option>
+            </select>
+            <p id="change"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              href="#"
+              id="doubleClick"
+              style="outline: none; text-decoration: none; color: black"
+              >Double Click</a
+            >
+          </td>
+          <td>
+            <div class="droptarget" id="dragclass">
+              <p id="drag" draggable="true">Drag item</p>
+            </div>
+            <p id="text"></p>
+
+            <div class="droptarget"></div>
+          </td>
+          <td>
+            <input type="text" name="text" id="text1" value="Change" />
+            <p id="ai"></p>
+          </td>
+          <td>
+            <form action="" id="form">
+              <label for="number">Number:</label>
+              <input type="text" name="number" id="number" pattern="^[0-9]" />
+              <input type="submit" name="submit" id="submit" value="SUBMIT" />
+              <input type="reset" name="reset" id="reset" value="RESET">
+              <p id="at"></p>
+            </form>
+          </td>
+          <td>
+            <input type="text" name="kd" id="kd" value="KeyDown">
+          </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="kp" id="kp" value="KeyPress">
+            </td>
+            <td>
+                <input type="text" name="ku" id="ku" value="KeyUp">
+                <p id="add"></p>
+            </td>
+            <td>
+                <p id="md">MouseDown and MouseUp Event</p>
+            </td>
+            <td>
+                <p id="me">MouseEnter and MouseLeave Event</p>
+            </td>
+            <td>
+                <p id="mm">MouseMove event</p>
+                <p id = "coor"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p id="mo">MouseOvert and MouseOut Event</p>
+            </td>
+            <td>
+                <p id="mw" on>MouseWheel event</p>
+            </td>
+            <td>
+                <p id="pointer">Pointer Event</p>
+            </td>
+            <td>
+                <p id="resize" on>Resizing Window</p>
+            </td>
+            <td>
+                <div style="width: 40vh; height: 15vh; border: 1px solid black; overflow:scroll;" id="scroll">
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam modi nemo reprehenderit delectus cumque explicabo fugiat nulla amet doloremque pariatur ipsum id hic qui ratione sit odit, expedita iusto, nisi vero asperiores! A nemo ex voluptatum excepturi veniam expedita possimus atque, voluptas eaque optio aliquam molestiae beatae itaque fuga eveniet.
+                    </p>
+                </div>
+                <p id="sc"></p>
+            </td>
+            <td>
+                <input type="text" name="select" id="select" value="Selected Text">
+                <p id="selecttext" on></p>
+            </td>
+            <td>
+                <details id="toggle">
+                    <summary>Smmary paragraph</summary>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime accusantium at velit inventore, in fugit quisquam necessitatibus culpa voluptatibus eos harum unde molestias esse sit consectetur sequi consequatur iusto dicta!</p>
+                </details>
+            </td>
+        </tr>
+      </table>
+    </div>
+    <script src="/public/script/All_Event_Practice/script.js"></script>
+  </body>
+</html>

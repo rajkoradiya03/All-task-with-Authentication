@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendence</title>
+    <link rel="stylesheet" href="/public/css/Attendence_Record/style.css">
+</head>
+<body>
+    <h2>Raj Koradiya</h2>
+    <select name="groupby" id="groupby">
+        <option value=""><%=groupby === undefined ? "---select---" : groupby %></option>
+        <option value="December">DEC 2023</option>
+        <option value="January">JAN 2024</option>
+        <option value="February">FEB 2024</option>  
+    </select>
+    <div>
+        <h4>Total Number of Student: <%=datacount %></h4>
+    </div>
+    <table border="1">
+        <tr>
+            <% for(keys in data[0]) { %>
+                <td><%=keys%></td>
+            <% } %>
+        </tr>
+        <% for( let i = 0; i < data.length; i++ ) { %>
+            <tr>
+                <% for(keys in data[i]) { %>
+                    <td><%=data[i][keys]%></td>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+    <% if (groupby === undefined) { %>
+        <div class="page-con">
+            <a class="<%=page == 1 ? 'disable' : ""%>" href="/userDetails/attendence?page=1" id="start"><<</a>
+            <a class="<%=page <= 1 ? 'disable': "" %>" href="/userDetails/attendence?page=<%=page-1 %>" id="dec"><</a>
+            <p><%=page %></p>
+            <a class="<%=page >= totalpage ? 'disable' : "" %>" href="/userDetails/attendence?page=<%=page+1 %>" id="inr">></a>
+            <a class="<%=page == totalpage ? 'disable' : "" %>" href="/userDetails/attendence?page=<%=totalpage %>" id="end">>></a>   
+        </div>
+    <% } else { %>
+        <div class="page-con">
+            <a class="<%=page == 1 ? 'disable' : ""%>" href="/userDetails/attendence?page=1&groupby=<%=groupby%>" id="start"><<</a>
+            <a class="<%=page <= 1 ? 'disable': "" %>" href="/userDetails/attendence?page=<%=page-1 %>&groupby=<%=groupby %>" id="dec"><</a>
+            <p><%=page %></p>
+            <a class="<%=page >= totalpage ? 'disable' : "" %>" href="/userDetails/attendence?page=<%=page+1 %>&groupby=<%=groupby%>" id="inr">></a>
+            <a class="<%=page == totalpage ? 'disable' : "" %>" href="/userDetails/attendence?page=<%=totalpage %>&groupby=<%=groupby%>" id="end">>></a>   
+        </div>
+    <% } %>
+</body>
+<script>
+    const select = document.getElementById('groupby')
+    select.addEventListener('change', ()=>{
+        window.location.href = window.location.origin + window.location.pathname + "?page=1&groupby="+select.value;
+    })   
+</script>
+</html>

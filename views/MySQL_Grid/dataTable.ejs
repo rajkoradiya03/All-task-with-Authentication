@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>Roll No.</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Phone Number</td>
+            <td>Father Phone No.</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>Standard</td>
+            <td>Birthday Date</td>
+            <td>Joining Date</td>
+            <td>Adhara Card No.</td>
+        </tr>
+        <% for( let i = 0; i < data.length; i++ ) { %>
+            <tr>
+                <% for(keys in data[i]) { %>
+                    <td><%=data[i][keys]%></td>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic-tac-toe</title>
+
+    <style>
+        .maindiv{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vh;
+            height: 70vh;
+        }
+        table{
+        width: 350px;
+        height: 350px;
+        background-color: white;
+        border-radius: 5px;
+        max-width: 350px;
+        max-height: 350px;
+       }
+        td{
+            background-color: black;
+            border: 5px solid white;
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            cursor: pointer;
+            color: aliceblue;   
+            text-align: center;
+        }
+        #restart{
+            cursor: pointer;
+            background-color: black;
+            color: antiquewhite;
+            width: max-content;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="display: flex; justify-content: center;">Raj Koradiya - 24DEV063</h2>
+    <div>
+        <p id="scoreO">O Score:</p>
+        <p id="scoreX">X Score:</p>
+        <p id="restart">Restart</p>
+    </div>
+    <div class="maindiv">
+        <table class="maintable" id="maintable">
+            <tr>
+                <td id="0"></td>
+                <td id="1"></td>
+                <td id="2"></td>
+            </tr> 
+            <tr> 
+                <td id="3"></td>
+                <td id="4"></td>
+                <td id="5"></td>
+            </tr> 
+            <tr>
+                <td id="6"></td>
+                <td id="7"></td>
+                <td id="8"></td>
+            </tr>
+        </table>
+    </div>
+    <script src="/public/script/Tic_Tac_Toe/script.js"></script>
+</body>
+</html>

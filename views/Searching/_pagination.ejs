@@ -1,0 +1,7 @@
+<div class="page-con">
+    <a class="<%=page == 1 ? 'disable' : ""%>" href="<%=path%>?page=1&fname=<%=fname%>&lname=<%=lname %>&city=<%=city%>&op=<%=operator%>" id="start"><<</a>
+    <a class="<%=page <= 1 ? 'disable': "" %>" href="<%=path%>?page=<%=page-1 %>&fname=<%=fname%>&lname=<%=lname %>&city=<%=city%>&op=<%=operator%>" id="dec"><</a>
+    <p><%=page %></p>
+    <a class="<%=page >= totalpage ? 'disable' : "" %>" href="<%=path%>?page=<%=page+1 %>&fname=<%=fname%>&lname=<%=lname %>&city=<%=city%>&op=<%=operator%>" id="inr">></a>
+    <a class="<%=page == totalpage ? 'disable' : "" %>" href="<%=path%>?page=<%=totalpage %>&fname=<%=fname%>&lname=<%=lname %>&city=<%=city%>&op=<%=operator%>" id="end">>></a>   
+</div>

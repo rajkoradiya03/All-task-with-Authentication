@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01/02/2024</title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        .maindiv{
+            position: absolute;
+            width: auto;
+            margin-left: 10vh;
+            left: 50px;
+        }
+        .btndiv{
+            display: flex;
+            justify-content: end;
+            gap: 8px;
+            margin-bottom: 10px;
+            width: 20vh;
+        }
+        .btn{
+            border: 1px solid black;
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+        }
+        .btn2div{
+            display: flex;
+            justify-content: left;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        td{
+            padding: 15px;
+        }
+        tr:nth-of-type(odd)  td:nth-of-type(odd),  tr:nth-of-type(even) td:nth-of-type(even) {
+            background-color: rgb(72, 249, 255);
+        }
+        .name {
+            text-align: center;
+        }
+        p{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="name">
+        <h1>
+            Raj Koradiya - 24DEV063
+        </h1>
+    </div>
+    <div class="btndiv">
+        <p class="btn" id="addcol">+</p>
+        <p class="btn" id="rmcol">-</p>
+    </div>
+    <div id="main" class="maindiv">
+        <div>
+            <table border="1" id="maintable" style="border-collapse: collapse;">
+                <tr class="color">
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="color">
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="btn2div">
+        <p class="btn" id="addrow">+</p>
+        <p class="btn" id="rmrow">-</p>
+    </div>
+    <script src="/public/script/Dynamic_Table/script.js"></script>
+</body>
+</html>

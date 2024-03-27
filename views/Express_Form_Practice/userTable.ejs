@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Table</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Phone Number</td>
+            <td>Details</td>
+        </tr>
+        <% for(let index = 0; index < data.length; index++) { %>
+            <tr>
+                <td><%= data[index].fname%></td>
+                <td><%= data[index].lname%></td>
+                <td><%= data[index].email%></td>
+                <td><%= data[index].number%></td>
+                <td><a href="/userDetails/details/<%=data[index].id%>">VIEW</a></td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>

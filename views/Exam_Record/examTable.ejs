@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendence</title>
+    <link rel="stylesheet" href="/public/css/Exam_Record/style.css">
+</head>
+<body>
+    <h2>Raj Koradiya</h2>
+    <table border="1">
+        <tr>
+            <td rowspan="2">Student ID</td>
+            <td rowspan="2">Student Name</td>
+            <td colspan="2">Prilim</td>
+            <td colspan="2">Terminal</td>
+            <td colspan="2">Final</td>
+            <td rowspan="2">Total Marks</td>
+            <td rowspan="2">Result</td>
+        </tr>
+        <tr>
+            <td>Practical</td>
+            <td>Theory</td>
+            <td>Practical</td>
+            <td>Theory</td>
+            <td>Practical</td>
+            <td>Theory</td>
+        </tr>
+        <% for( let i = 0; i < data.length; i++) { %>
+            <tr>
+                <% for(keys in data[i]) { %>
+                    <td><%=data[i][keys]%></td>
+                <% } %>
+                <td><a href="/userDetails/report?id=<%=data[i].id%>">View Report</a></td>
+            </tr>
+        <% } %>
+    </table>
+    <div class="page-con">
+        <a class="<%=page == 1 ? 'disable' : ""%>" href="/userDetails/examrecord?page=1" id="start"><<</a>
+        <a class="<%=page <= 1 ? 'disable': "" %>" href="/userDetails/examrecord?page=<%=page-1 %>" id="dec"><</a>
+        <p><%=page %></p>
+        <a class="<%=page >= totalpage ? 'disable' : "" %>" href="/userDetails/examrecord?page=<%=page+1 %>" id="inr">></a>
+        <a class="<%=page == totalpage ? 'disable' : "" %>" href="/userDetails/examrecord?page=<%=totalpage %>" id="end">>></a>   
+    </div>
+</body>
+</html>

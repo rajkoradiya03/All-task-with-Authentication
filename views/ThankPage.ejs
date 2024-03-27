@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you</title>
+    <link rel="stylesheet" href="/public/css/home.css">
+    <style>
+        p{
+            width: 300px;
+        }
+        .link {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <p>Your activation link is here...</p>
+            <p class="link">Link: http://localhost:8000/verify?email=<%=email %>&code=<%=code %></p>
+        </div>
+    </div>
+</body>
+</html>

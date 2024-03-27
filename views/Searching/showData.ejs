@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Data</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+    <h2>Raj Koradiya</h2>
+     <div id="filter-id">
+        <form action="/search" method="get">
+            <input type="text" name="sid" id="sid" tabindex="0">
+            <input type="submit" name="submit" id="submit" value="GO">
+        </form>
+    </div>
+    <button id="show">Show More...</button>
+    <div id="filter-box" style="display: none;">
+        <input type="text" name="fname" id="fname" placeholder="First Name">
+        <input type="text" name="lname" id="lname" placeholder="Last Name">
+        <input type="text" name="city" id="city" placeholder="City">
+        <select name="operator" id="operator">
+            <option value="">Select Operator</option>
+            <option value="and">AND</option>
+            <option value="or">OR</option>
+        </select>
+        <button id="go">GO</button>
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <td rowspan="2">Student ID</td>
+                <td rowspan="2">Student Name</td>
+                <td colspan="2">Prilim</td>
+                <td colspan="2">Terminal</td>
+                <td colspan="2">Final</td>
+                <td rowspan="2">Total Marks</td>
+            </tr>
+            <tr>
+                <td>Practical</td>
+                <td>Theory</td>
+                <td>Practical</td>
+                <td>Theory</td>
+                <td>Practical</td>
+                <td>Theory</td>
+            </tr>
+            <% for( let i = 0; i < data.length; i++) { %>
+                <tr>
+                    <% for(keys in data[i]) { %>
+                        <td><%=data[i][keys]%></td>
+                    <% } %>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+    <script>
+        const btn = document.getElementById("show")
+        const box2 = document.getElementById("filter-id")
+        const box = document.getElementById("filter-box")
+        btn.addEventListener("click", ()=>{
+            if(box.style.display === "block" && box2.style.display === "none"){
+                box.style.display = "none";
+                box2.style.display = "block";
+                btn.innerHTML = "Show More..."
+            }else{
+                box.style.display = "block";
+                box2.style.display = "none";
+                btn.innerHTML = "Show Less..."
+            }
+        })
+        const fname = document.getElementById('fname')
+        const lname = document.getElementById('lname')
+        const city = document.getElementById('city')
+        const go = document.getElementById('go')
+        const selectedOP = document.getElementById('operator')
+        go.addEventListener('click',()=>{
+            window.location.href = window.location.origin +"/data?fname="+fname.value+"&lname="+lname.value+"&city="+city.value+"&op="+selectedOP.value;
+        })
+    </script>
+</body>
+</html>

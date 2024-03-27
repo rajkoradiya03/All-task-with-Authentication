@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/register.css">
+    <style>
+        .card{
+            height: 350px;
+        }
+        .head {
+            text-align: center;
+            p{
+                font-size: 14px;
+                font-family: serif;
+            }
+        }
+        .link {
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="main">
+            <div class="head">
+                <h2>Forgot Password</h2>
+                <p>Enter registered email to sent verification link.</p>
+                <p id="err"></p>
+            </div>
+            <div class="formdiv">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="email">Email:</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="email" id="email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="btn" id="verify">Verify</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/public/script/forgotpass.js"></script>
+</body>
+</html>

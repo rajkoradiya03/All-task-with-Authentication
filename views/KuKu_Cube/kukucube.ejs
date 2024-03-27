@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 02 02</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: palevioletred;
+        }
+       .maindiv{
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+        margin-top: -60px;
+       }
+       table{
+        width: 350px;
+        height: 350px;
+        background-color: white;
+        border-radius: 5px;
+        max-width: 350px;
+        max-height: 350px;
+       }
+       td{
+        width: max-content;
+        height: max-content;
+        /* border: 0.5px solid white; */
+        border-radius: 5px;
+       }
+       .score{
+        color: white;
+
+       }
+       .pause, .start{
+        border: 2px solid black;
+        padding: 5px;
+        color: white;
+        cursor: pointer;
+        background-color: blue;
+        font-weight: bolder;
+        border-radius: 10px;
+       }
+       .header{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+       }
+       .time{
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+       }
+    </style>
+</head>
+<body>
+    <h2 style="display: flex; justify-content: center;">Raj Koradiya - 24DEV063</h2>
+    <div class="header">
+        <p class="score" id="score"></p>
+        <p class="time" id="time">0</p>
+        <p class="start" id="start">Start</p>
+        <p class="pause" id="pause">Pause</p>
+    </div>
+    <div class="maindiv" id="maindiv">
+        <table id="maintable">
+            <!-- <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </table>
+    </div>
+    <script src="/public/script/KuKu_Cube/script.js"></script>
+</body>
+</html>

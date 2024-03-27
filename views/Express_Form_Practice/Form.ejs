@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="/public/css/Express_Form_Practice/style.css">
+</head>
+<body>
+    <h1>Data Form</h1>
+    <div class="tableform">
+        <form action="/userDetails/user" method="POST" name="form" onload="">
+            <table>
+                <tr>
+                    <td>
+                        <label for="fname">First Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="fname">
+                    </td>
+                    <td>
+                        <label for="lname">Last Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="lname">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="age">Age:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="age" id="age">
+                    </td>
+                    <td>
+                        <label for="Number">Phone Number:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="number" id="num">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">E-mail:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="email" id="email">
+                    </td>
+                    <td>
+                        <label for="address">Address:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="address" id="address">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="gender">Gender:</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="gender" id="male" value="male">
+                        <label for="male">male</label>
+                        <input type="radio" name="gender" id="female" value="female">
+                        <label for="male">female</label>
+                    </td>
+                    <td>
+                        <label for="hobbies">Hobbies:</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobbies" id="reading" value="Reading">
+                        <label for="reading">Reading</label>
+                        <input type="checkbox" name="hobbies" id="Cricket" value="Cricket">
+                        <label for="Cricket">Cricket</label>
+                        <input type="checkbox" name="hobbies" id="Vollyball" value="Vollyball">
+                        <label for="Vollyball">Vollyball</label>
+                        <input type="checkbox" name="hobbies" id="history" value="History">
+                        <label for="history">History</label>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="subbtn">
+                        <input type="submit" name="submit" id="submit" value="SUBMIT">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="subbtn2">
+                        <a href="/userDetails/user/table">View Records</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

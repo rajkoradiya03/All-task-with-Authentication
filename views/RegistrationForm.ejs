@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/register.css">
+    <style>
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        h2{
+            margin-top: 20px;
+            width: 350px;
+            text-align: center;
+        }
+        .btn{
+            margin-bottom: 0px;
+        }
+        p{
+            width: 300px;
+        }
+        .link {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="main">
+            <div>
+                <h2>Registration</h2> 
+            </div>
+            <div class="formdiv">
+                <p id="err"></p>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="firstName">First Name:</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="firstName" id="firstName">
+                            <p class="msg"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="lastName">Last Name:</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="lastName" id="lastName">
+                            <p class="msg"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email">Email: </label>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="email" id="email" placeholder="Ex. abc@gmail.com">
+                            <p class="msg"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Username">Username: </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="Username" id="Username">
+                            <p class="msg"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password">Create Password:</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" name="password" id="password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="confirmpassword">Confirm Password:</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" name="confirmpassword" id="confirmpassword">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                    </tr>   
+                </table>
+            </div>
+            <div class="btndiv">
+                <p class="btn" id="register">Register</p>
+                <a href="" id="active"></a>
+            </div>
+        </div>
+    </div>
+    <script src="/public/script/regscript.js"></script>
+</body>
+</html>

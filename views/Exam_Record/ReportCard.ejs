@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Report Card</title>
+    <link rel="stylesheet" href="/public/css/Exam_Record/style2.css">
+</head>
+<body>
+    <h2>Student Name: <%=name[0].s_fname %></h2>
+    <table border="1">
+        <tr>
+            <td rowspan="2">Subject Name</td>
+            <td colspan="2">Prilim</td>
+            <td colspan="2">Terminal</td>
+            <td colspan="2">Final</td>
+        </tr>
+        <tr>
+            <td>Practical</td>
+            <td>Theory</td>
+            <td>Practical</td>
+            <td>Theory</td>
+            <td>Practical</td>
+            <td>Theory</td>
+        </tr>
+        <% for( let i = 0; i < data.length; i++ ) { %>
+            <tr>
+                <% for(keys in data[i]) { %>
+                    <td><%=data[i][keys]%></td>
+                <% } %>
+            </tr>
+        <% } %>
+        <tr>
+            <td>Total Marks</td>
+            <td colspan="6"><%=totalmark[0]['Total Marks'] %></td>
+        </tr>
+        <tr>
+            <td>Percentage</td>
+            <td colspan="6"><%=totalmark[0]['Percentage'] %>%</td>
+        </tr>
+    </table>
+    <div>
+        <h3>Attendence:</h3>
+        <table border="1">
+            <tr>
+                <td>Month</td>
+                <td>Total Days Present</td>
+            </tr>
+            <% for( let i = 0; i < attendata.length; i++ ) { %>
+                <tr>
+                    <% for(keys in attendata[i]) { %>
+                        <td><%=attendata[i][keys]%></td>
+                    <% } %>
+                </tr>
+            <% } %>
+            <tr>
+                <td>Attendence in(%)</td>
+                <td><%=attenper[0]["AttendencePer"] %></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
