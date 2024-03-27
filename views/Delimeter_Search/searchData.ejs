@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Data</title>
+</head>
+<body>
+    <h2>Raj Koradiya</h2>
+    <div>
+        <table>
+            <tr>
+                <td>s_fname</td>
+                <td>"_"</td>
+            </tr>
+            <tr>
+                <td>s_lname</td>
+                <td>"^"</td>
+            </tr><tr>
+                <td>s_phone_number</td>
+                <td>"{"</td>
+            </tr><tr>
+                <td>s_city</td>
+                <td>":"</td>
+            </tr>
+            <tr>
+                <td>s_standard</td>
+                <td>"$"</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <form method="post" action="/userDetails/searchdata">
+            <input type="text" name="search" id="search" placeholder="Enter Delimeter">
+            <input type="submit" name="go" id="go" value="GO">
+        </form>
+    </div>
+</body>
+</html>

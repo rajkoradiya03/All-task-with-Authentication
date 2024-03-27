@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Data</title>
+</head>
+<body>
+    <h2>Raj Koradiya</h2>
+    <div>
+        <table>
+            <tr>
+                <td>s_fname</td>
+                <td>"_"</td>
+            </tr>
+            <tr>
+                <td>s_lname</td>
+                <td>"^"</td>
+            </tr><tr>
+                <td>s_phone_number</td>
+                <td>"{"</td>
+            </tr><tr>
+                <td>s_city</td>
+                <td>":"</td>
+            </tr>
+            <tr>
+                <td>s_standard</td>
+                <td>"$"</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <form method="post" action="/userDetails/searchdata" name="form">
+            <input type="text" name="search" id="search" placeholder="Enter Delimeter" value="<%=str%>">
+            <input type="submit" name="go" id="go" value="GO">
+            <!-- <input type="radio" name="" id=""> -->
+        </form>
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <% for(let keys in data[0]) { %>
+                    <td><%=keys%></td>
+                <% } %>
+            </tr>
+            <% for( let i = 0; i < data.length; i++) { %>
+                <tr>
+                    <% for(keys in data[i]) { %>
+                        <td><%=data[i][keys]%></td>
+                    <% } %>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+</body>
+</html>

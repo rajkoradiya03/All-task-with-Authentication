@@ -8,6 +8,8 @@ const { attendence } = require('../controllers/Attendence_Record/attendence');
 const { examRecord, reportCard } = require('../controllers/Exam_Record/examController');
 const { searchData, dataRetrivebyID } = require('../controllers/Searching/searchbyID');
 const { fieldData } = require('../controllers/Searching/searchbyfield');
+const { DelimetersearchData, getData } = require('../controllers/Delimeter_Search/dataController');
+const { getData2 } = require('../controllers/Delimeter_Search/dataController2');
 const router =  express.Router();
 
 
@@ -94,4 +96,8 @@ router.get('/userDetails/searching',authrate, searchData);
 router.get('/userDetails/search', dataRetrivebyID);
 router.get('/userDetails/data', fieldData);
 
+router.get('/userDetails/delimetersearch', DelimetersearchData)
+router.post('/userDetails/searchdata', getData)
+// router.post('/userDetails/searchdata', getData2)
+ 
 module.exports = router;
