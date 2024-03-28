@@ -18,6 +18,7 @@ const { ajaxvalidation } = require('../controllers/AJAX_Job_Application/validati
 const { showData } = require('../controllers/AJAX_Job_Application/showData');
 const { ajaxupdateForm } = require('../controllers/AJAX_Job_Application/update');
 const router =  express.Router();
+const passport  = require('../config/passport')
 
 
 router.get('/', (req,res)=>{
@@ -42,13 +43,14 @@ router.post('/login', authLogin)
 
 // router.get('/thankyou', thankyou);
 
-router.get('/userDetails', authrate, (req,res)=>{
+// router.get('/userDetails', authrate, (req,res)=>{
+//     res.render('userDetails', {data: req.user})
+// })
+
+router.get('/userDetails', passport.authenticate('jwt', {session:false}), (req,res)=>{
+    console.log(req);
     res.render('userDetails', {data: req.user})
 })
-
-// router.get('/userDetails', passport.authenticate('jwt', {session:false}), (req,res)=>{
-//     res.render('userDetails', {data: payload})
-// })
 
 router.get('/logout', logout)
 router.get('/forgotpass', (req,res)=>{

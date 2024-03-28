@@ -11,9 +11,9 @@ let emailregx = /([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})*$/;
 let smalltextregx = /^[a-z0-9]*$/;
 let msg = document.getElementsByClassName('msg');
 let main = document.getElementById('main');
-// if(getItemLocal('token')){
-//     window.location = '/userDetails'
-// }
+if(getItemLocal('token')){
+    window.location = '/userDetails'
+}
 regbtn.addEventListener('click', async ()=>{
     let isvalid = true;
     
@@ -89,22 +89,22 @@ regbtn.addEventListener('click', async ()=>{
     }
 })
 
-// function getItemLocal(key){
-//     let data = localStorage.getItem(key);
-//     let nowTime = new Date().getTime();
+function getItemLocal(key){
+    let data = localStorage.getItem(key);
+    let nowTime = new Date().getTime();
 
-//     if(!data){
-//         return null;
-//     }
+    if(!data){
+        return null;
+    }
 
-//     data = JSON.parse(data);
+    data = JSON.parse(data);
 
-//     if(nowTime > data.expireTime){
-//         localStorage.removeItem(key);
-//         return null;
-//     }
+    if(nowTime > data.expireTime){
+        localStorage.removeItem(key);
+        return null;
+    }
 
-//     // console.log(data.value);
-//     return data.value;
+    // console.log(data.value);
+    return data.value;
 
-// }
+}
