@@ -102,11 +102,11 @@ router.get('/userDetails/examrecord', authrate, examRecord);
 router.get('/userDetails/report', authrate, reportCard);
 
 router.get('/userDetails/searching',authrate, searchData);
-router.get('/userDetails/search', dataRetrivebyID);
-router.get('/userDetails/data', fieldData);
+router.get('/userDetails/search', authrate, dataRetrivebyID);
+router.get('/userDetails/data', authrate, fieldData);
 
-router.get('/userDetails/delimetersearch', DelimetersearchData)
-router.post('/userDetails/searchdata', getData)
+router.get('/userDetails/delimetersearch', authrate, DelimetersearchData)
+router.post('/userDetails/searchdata', authrate, getData)
 // router.post('/userDetails/searchdata', getData2)
  
 router.get('/userDetils/jobapplication', authrate, (req,res)=>{
@@ -115,16 +115,16 @@ router.get('/userDetils/jobapplication', authrate, (req,res)=>{
 router.get('/userDetails/validateMsg', authrate, (req,res)=>{
     res.send('Please Fill Required Field! OR Please Check emailID OR Please chaeck Phone Number');
 })
-router.get('/userDetails/generate', mainForm);
-router.post('/userDetails/validate', validation);
-router.get('/userDetails/updateForm', updateForm);
+router.get('/userDetails/generate', authrate, mainForm);
+router.post('/userDetails/validate', authrate, validation);
+router.get('/userDetails/updateForm', authrate, updateForm);
 
-router.get('/userDetails/ajaxform', form);
-router.post('/userDetails/ajaxvalidate', ajaxvalidation)
-router.get('/userDetails/ajaxValidateMsg', (req,res)=>{
+router.get('/userDetails/ajaxform', authrate, form);
+router.post('/userDetails/ajaxvalidate', authrate, ajaxvalidation)
+router.get('/userDetails/ajaxValidateMsg', authrate, (req,res)=>{
     res.send('Please Fill Required Field! OR Please Check emailID OR Please chaeck Phone Number');
 })
-router.get('/userDetails/welcome',showData);
-router.get('/userDetails/update/:id', form);
-router.get('/userDetails/getData/:id', ajaxupdateForm)
+router.get('/userDetails/welcome', authrate, showData);
+router.get('/userDetails/update/:id', authrate, form);
+router.get('/userDetails/getData/:id', authrate, ajaxupdateForm)
 module.exports = router;
