@@ -141,7 +141,7 @@ exports.authLogin = async (req,res) =>{
             }
         }
     } catch (error) {
-        
+        console.log("login: "+ error.message);
     }
 
 }
