@@ -134,4 +134,8 @@ router.get('/userDetails/Ehya', (req,res)=>{
 router.get('/userDetails/HireX', (req,res)=>{
     res.render('HireX_Demo/HireX')
 })
+
+router.get('/userDetails/Awan', (req,res)=>{
+    res.render('Awan_Demo/Awan')
+})
 module.exports = router;
