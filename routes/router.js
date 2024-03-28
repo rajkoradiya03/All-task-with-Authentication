@@ -20,6 +20,7 @@ const { ajaxupdateForm } = require('../controllers/AJAX_Job_Application/update')
 const router =  express.Router();
 const passport  = require('../config/passport');
 const { query, page } = require('../controllers/Dynamic_Query/controllers');
+const { main, getValue } = require('../controllers/Generate_Combo/dataController');
 
 
 router.get('/', (req,res)=>{
@@ -128,18 +129,21 @@ router.get('/userDetails/welcome', authrate, showData);
 router.get('/userDetails/update/:id', authrate, form);
 router.get('/userDetails/getData/:id', authrate, ajaxupdateForm);
 
-router.get('/userDetails/Ehya', (req,res)=>{
+router.get('/userDetails/Ehya', authrate, (req,res)=>{
     res.render('Ehya_Demo/ehya')
 })
 
-router.get('/userDetails/HireX', (req,res)=>{
+router.get('/userDetails/HireX', authrate, (req,res)=>{
     res.render('HireX_Demo/HireX')
 })
 
-router.get('/userDetails/Awan', (req,res)=>{
+router.get('/userDetails/Awan', authrate, (req,res)=>{
     res.render('Awan_Demo/Awan')
 })
 
-router.get('/userDetails/query', query);
-router.post('/userDetails/result', page);
+router.get('/userDetails/query', authrate, query);
+router.post('/userDetails/result', authrate, page);
+
+router.get('/userDetails/maininput', authrate, main)
+router.get('/userDetails/inputgenerate', authrate, getValue)
 module.exports = router;

@@ -7,7 +7,7 @@ exports.authrate = (req,res,next)=>{
         let token = req.cookies.token || req.body.token;
         
         if(!token){
-            res.send("Token is not Found ")
+            res.redirect('/')
         } else {
             let decodeData = jwt.verify(token, process.env.JWT_SECRET)
             req.user = decodeData;
