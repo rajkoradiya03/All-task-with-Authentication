@@ -7,7 +7,7 @@ let username = document.getElementById('Username');
 let password = document.getElementById('password');
 let cpassword = document.getElementById('confirmpassword');
 let textOnlyeregx = /^[a-zA-Z]*$/;
-let emailregx = /([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})*$/;
+let emailregx = /([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$/;
 let smalltextregx = /^[a-z0-9]*$/;
 let msg = document.getElementsByClassName('msg');
 let main = document.getElementById('main');
@@ -17,14 +17,21 @@ if(getItemLocal('token')){
 regbtn.addEventListener('click', async ()=>{
     let isvalid = true;
     
-    if(!textOnlyeregx.test(fname.value)){
+    if(fname.value == ""){
+        msg[0].innerHTML = "Feild Required!!"
+        isvalid = false;
+    } else if(!textOnlyeregx.test(fname.value)){
         msg[0].innerHTML = "First Name in only text."
         isvalid = false;
     } else {
         msg[0].innerHTML = ""
     }
 
-    if(!textOnlyeregx.test(lname.value)){
+    if(lname.value == ""){
+        msg[1].innerHTML = "Feild Required!!"
+        isvalid = false;
+    }
+    else if(!textOnlyeregx.test(lname.value)){
         msg[1].innerHTML = "Last Name in only text."
         isvalid = false;
     } else {
@@ -37,12 +44,33 @@ regbtn.addEventListener('click', async ()=>{
     } else {
         msg[2].innerHTML = ""
     }
-
-    if(!smalltextregx.test(username.value)){
+    if(username.value == ""){
+        msg[3].innerHTML = "Feild Required!!."
+        isvalid = false;
+    }
+    else if(!smalltextregx.test(username.value)){
         msg[3].innerHTML = "Username should be small text."
         isvalid = false;
     } else {
         msg[3].innerHTML = ""
+    }
+
+    if(password.value == ""){
+        msg[4].innerHTML = "Create Password!!"
+        isvalid = false;
+    } else {
+        msg[4].innerHTML = ""
+    }
+
+    if(cpassword.value == ""){
+        msg[5].innerHTML = "Enter Confirm Password!!"
+        isvalid = false;
+    } else {
+        msg[5].innerHTML = ""
+    }
+
+    if(isvalid == false){
+        main.style.height = "690px";
     }
 
     if(isvalid == true){

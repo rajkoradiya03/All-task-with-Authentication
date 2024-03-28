@@ -21,8 +21,7 @@ exports.getRegisterData = async (req,res)=>{
             }
         })
 
-  
-        if(data.firstName == ""){
+        if(data.firstName == "" && data.password == "" && data.confirmpassword == "" && data.lastName == "" && data.email == "" && data.username == ""){
             res.json({errMessage: "Enter Valid Information!!"})
         }
         else if(data.password !== data.confirmpassword ){
@@ -90,7 +89,7 @@ exports.getVerification = async (req,res)=>{
 
 exports.authLogin = async (req,res) =>{
     try {
-        let data = req.body
+        let data = req.body;
     
         let Usersql = `select * from Users where UserName = "${data.username}";`
     
@@ -98,13 +97,13 @@ exports.authLogin = async (req,res) =>{
     
         let msg = "";
     
-        if(result.length <= 0) {
-            msg = "User not Register!!"
+        if(data.username == "" || data.password == "") {
+            msg = "All field are required!!"
             res.json({
                 errmessage: msg
             })
-        } else if(data.username == "" || data.password == ""){
-            msg = "All field are required!!"
+        } else if(result.length == 0){
+            msg = "User not Register!!"
             res.json({
                 errmessage: msg
             })

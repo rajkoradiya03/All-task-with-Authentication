@@ -19,7 +19,7 @@ body{
     background-color: ghostwhite;
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgb(255, 145, 0);
-    max-height: 590px;
+    /* max-height: 590px; */
 }
 
 h2,h1{
