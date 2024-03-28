@@ -28,6 +28,16 @@ CREATE TABLE `exammaster` (
   PRIMARY KEY (`e_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `exammaster`
+--
+
+LOCK TABLES `exammaster` WRITE;
+/*!40000 ALTER TABLE `exammaster` DISABLE KEYS */;
+INSERT INTO `exammaster` VALUES (1,'Prilim'),(2,'Terminal'),(3,'Final');
+/*!40000 ALTER TABLE `exammaster` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -38,4 +48,4 @@ CREATE TABLE `exammaster` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-27 19:26:43
+-- Dump completed on 2024-03-28 11:27:08

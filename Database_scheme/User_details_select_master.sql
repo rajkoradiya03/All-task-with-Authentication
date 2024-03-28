@@ -33,6 +33,16 @@ CREATE TABLE `select_master` (
   UNIQUE KEY `select_name` (`select_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `select_master`
+--
+
+LOCK TABLES `select_master` WRITE;
+/*!40000 ALTER TABLE `select_master` DISABLE KEYS */;
+INSERT INTO `select_master` VALUES (1,'Gender_Radio','Gender','radio','gender',NULL),(2,'Reletion_select','Relationship','dropdown','relationship',NULL),(3,'Education_Select','Education','dropdown','education',NULL),(4,'School_Course_Select','SchoolCourse','dropdown','course',NULL),(5,'Languages_Check','Languages','checkbox','languages',NULL),(6,'Prefered_Location_Select','PreferedLocation','dropdown','location','multiple'),(7,'Technologies_check','Technologies','checkbox','technologies',NULL),(8,'Technologies_Level_Radio','Level','radio','level',NULL),(9,'College_Course_Select','CollegeCourse','dropdown','clgcourse',NULL);
+/*!40000 ALTER TABLE `select_master` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -43,4 +53,4 @@ CREATE TABLE `select_master` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-27 19:26:43
+-- Dump completed on 2024-03-28 11:27:08
