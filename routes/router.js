@@ -21,6 +21,7 @@ const router =  express.Router();
 const passport  = require('../config/passport');
 const { query, page } = require('../controllers/Dynamic_Query/controllers');
 const { main, getValue } = require('../controllers/Generate_Combo/dataController');
+const { generateCountry, cityRegioun, timezone } = require('../controllers/TimeZone_Convertor/controller');
 
 
 router.get('/', (req,res)=>{
@@ -146,4 +147,9 @@ router.post('/userDetails/result', authrate, page);
 
 router.get('/userDetails/maininput', authrate, main)
 router.get('/userDetails/inputgenerate', authrate, getValue)
+
+router.get('/userDetails/generateCountry', authrate, generateCountry);
+router.post('/userDetails/generateCountry',authrate, cityRegioun);
+// router.post('/userDetails/generateCountry',authrate, timezone);
+
 module.exports = router;

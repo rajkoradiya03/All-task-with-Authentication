@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeZone</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <label for="time">TIME: </label>
+            </td>
+            <td>
+                <input type="text" name="time" id="time" placeholder="HH:MM:SS">
+                <button id="convert">convert</button>
+            </td>
+        </tr>
+        <tr>
+           <td><label for="Country">Country:</label></td>
+           <td><select name="Country" id="country">
+                <%-country %>
+           </select></td>
+           <td><label for="City">City:</label></td>
+            <td><select name="City" id="city">
+                
+            </select></td>
+        </tr>
+    </table>
+    <p id="convertTime">Convert Time:</p>
+
+    <script src="/public/script/TimeZone_Convertor/script.js"></script>
+</body>
+</html>
