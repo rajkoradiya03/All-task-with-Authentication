@@ -130,4 +130,8 @@ router.get('/userDetails/getData/:id', authrate, ajaxupdateForm);
 router.get('/userDetails/Ehya', (req,res)=>{
     res.render('Ehya_Demo/ehya')
 })
+
+router.get('/userDetails/HireX', (req,res)=>{
+    res.render('HireX_Demo/HireX')
+})
 module.exports = router;
