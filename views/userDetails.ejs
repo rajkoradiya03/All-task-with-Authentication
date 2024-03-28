@@ -6,6 +6,7 @@
     <title>User Details</title>
     <link rel="stylesheet" href="/public/css/home.css">
     <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         .btn{
             width: 100px;
@@ -22,13 +23,9 @@
         .list{
             margin-top: 50px;
             width: 800px;
-        }
-        .subdiv{
-            display: flex;
-            flex-direction: column;
-            width: max-content;
-            float: right;
-            gap: 5px;
+            position: absolute;
+            top: 0;
+            left: 30em;
         }
         a{
             text-decoration: none;
@@ -44,17 +41,24 @@
 </head>
 <body>
     <div>
-        <div>
-            <a href="/logout" class="btn" id="logout">LogOut</a>
-        </div>
-        <div>
-            <h2>Name: <%=data.fname %> <%=data.lname %></h2>
-            <p>Email: <%=data.email %></p>
-            <p>User Name: <%=data.username %></p>   
+        <div class="details">
+            <div>
+                <p id="profilebtn"><i class="fa-solid fa-user"></i> Your Profile</p>
+            </div>
+            <div id="details">
+                <div>
+                    <h2>Name: <%=data.fname %> <%=data.lname %></h2>
+                    <p>Email: <%=data.email %></p>
+                    <p>User Name: <%=data.username %></p>   
+                </div>
+                <div>
+                    <a href="/logout" class="btn" id="logout">LogOut</a>
+                </div>
+            </div>
         </div>
         <div class="list">
             <div class="subdiv"> 
-                <h3>Practice List:</h3>
+                <h3>Practice work List:</h3>
                 <a href="/userDetails/dynamictable">1. Dynamic Table</a>
                 <a href="/userDetails/kukucube">2. KuKu Cube</a>
                 <a href="/userDetails/tictactoe">3. Tic Tac Toe</a>

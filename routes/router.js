@@ -47,8 +47,7 @@ router.post('/login', authLogin)
 //     res.render('userDetails', {data: req.user})
 // })
 
-router.get('/userDetails', passport.authenticate('jwt', {session:false}), (req,res)=>{
-    console.log(req);
+router.get('/userDetails', passport.authenticate('jwt', {session:false, failureRedirect: "/"}), (req,res)=>{
     res.render('userDetails', {data: req.user})
 })
 
