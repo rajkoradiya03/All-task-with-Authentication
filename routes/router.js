@@ -125,5 +125,9 @@ router.get('/userDetails/ajaxValidateMsg', authrate, (req,res)=>{
 })
 router.get('/userDetails/welcome', authrate, showData);
 router.get('/userDetails/update/:id', authrate, form);
-router.get('/userDetails/getData/:id', authrate, ajaxupdateForm)
+router.get('/userDetails/getData/:id', authrate, ajaxupdateForm);
+
+router.get('/userDetails/Ehya', (req,res)=>{
+    res.render('Ehya_Demo/ehya')
+})
 module.exports = router;

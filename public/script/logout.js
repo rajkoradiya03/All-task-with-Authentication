@@ -29,3 +29,16 @@ logoutbtn.addEventListener('click', async (e)=>{
         window.location = '/'
     }
 })
+
+const otherbtn = document.getElementById('otherbtn');
+
+let otherToggle = false;
+otherbtn.addEventListener('click', ()=>{
+    if(!otherToggle){
+        document.getElementById('otherTask').style.display = "flex";
+        otherToggle = true;
+    } else {
+        document.getElementById('otherTask').style.display = "none"
+        otherToggle = false;
+    }  
+})

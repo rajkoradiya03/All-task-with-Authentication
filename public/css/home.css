@@ -109,6 +109,20 @@ a{
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    font-weight: 600;
+}
+
+.other{
+    margin-top: 20px;
+    border-bottom : 2px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    font-weight: 600;
 }
 
 #profilebtn:active{
