@@ -18,7 +18,8 @@ const { ajaxvalidation } = require('../controllers/AJAX_Job_Application/validati
 const { showData } = require('../controllers/AJAX_Job_Application/showData');
 const { ajaxupdateForm } = require('../controllers/AJAX_Job_Application/update');
 const router =  express.Router();
-const passport  = require('../config/passport')
+const passport  = require('../config/passport');
+const { query, page } = require('../controllers/Dynamic_Query/controllers');
 
 
 router.get('/', (req,res)=>{
@@ -138,4 +139,7 @@ router.get('/userDetails/HireX', (req,res)=>{
 router.get('/userDetails/Awan', (req,res)=>{
     res.render('Awan_Demo/Awan')
 })
+
+router.get('/userDetails/query', query);
+router.post('/userDetails/result', page);
 module.exports = router;

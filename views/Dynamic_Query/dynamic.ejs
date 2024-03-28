@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Dynamic</title>
+    <link rel="stylesheet" href="../../public/css/Dynamic_Query/style.css">
+</head>
+<body>
+    <div>
+        <form action="/userDetails/result" method="post">
+            <textarea name="query" id="query" cols="30" rows="10"></textarea>
+            <input type="submit" name="submit" id="submit" value="submit">
+        </form>
+    </div>
+    <%- include('_pagination.ejs', {page,path,totalpage}) %> 
+    <table>
+        <tr>
+            <% for(keys in data[0]) { %>
+                <td><%=keys%></td>
+            <% } %>
+        </tr>
+        <% for( let i = 0; i < data.length; i++ ) { %>
+            <tr>
+                <% for(keys in data[i]) { %>
+                    <td><%=data[i][keys]%></td>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>
