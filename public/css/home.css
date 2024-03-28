@@ -84,10 +84,10 @@ a{
     flex-direction: column;
     width: max-content;
     gap: 5px;
-    border: 1px solid #b94c4c;
+    border: 1px solid black;
     padding: 25px;
     border-radius: 5px;
-    box-shadow: 4px 4px 4px #b94c4c;
+    box-shadow: 4px 4px 4px black;
 }
 
 .details{
@@ -103,7 +103,7 @@ a{
     border-bottom : 2px solid black;
     padding: 5px 10px;
     border-radius: 10px;
-    box-shadow: 2px 3px 4px #b94c4c;
+    box-shadow: 2px 3px 4px black;
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
