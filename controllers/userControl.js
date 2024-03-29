@@ -39,7 +39,7 @@ exports.getRegisterData = async (req,res)=>{
             res.json({message: "Click Here", code: verificationCode, email:data.email})
         }
     } catch (error) {
-        console.log(error.message);
+        console.log("Register form function: "+error.message);
     }
 }
 
@@ -82,7 +82,7 @@ exports.getVerification = async (req,res)=>{
             res.render('Verification', {message:message, btn:btn, href:href});
         }
     } catch (error) {
-        console.log(error.message);
+        console.log("Register Form verification function: "+error.message);
     }
 }
 
@@ -174,7 +174,7 @@ exports.forgotPass = async (req,res)=>{
             return res.json({code: verificationCode, email: email})
         }
     } catch (error) {
-        console.log(error.message);
+        console.log("Forgot password function: "+error.message);
     }
 }
 
@@ -208,7 +208,7 @@ exports.rePassword = async (req,res)=>{
             res.render('reEnterPass')
         }
     } catch (error) {
-        console.log(error.message);
+        console.log("Re type password function: "+error.message);
     }
 }
 
@@ -240,6 +240,6 @@ exports.updatePass = async (req,res)=>{
             })
         }
     } catch (error) {
-        console.log(error.message);
+        console.log("Register Form useController function: "+error.message);
     }
 }

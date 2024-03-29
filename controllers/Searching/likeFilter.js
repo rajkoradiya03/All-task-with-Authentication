@@ -22,6 +22,6 @@ exports.likeData = async (req,res)=>{
         // console.log(result);
         res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})
     } catch (error) {
-        console.log(error.message);
+        console.log("Searching like data function: "+error.message);
     }
 }

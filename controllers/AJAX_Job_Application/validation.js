@@ -300,6 +300,6 @@ exports.ajaxvalidation = async (req,res)=>{
             }
         }
     } catch (error) {
-        console.log(error);
+        console.log("AJAX validation function: "+error.message);
     }
 }

@@ -274,6 +274,6 @@ exports.validation = async (req, res) => {
       }
     }
   } catch (e) {
-    console.log(e);
+    console.log("Normal Job application form validate function: " + e.message);
   }
 };

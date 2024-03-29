@@ -20,7 +20,7 @@ exports.form = async (req,res)=>{
             PreferedCity: PreferedCity,
         });
     } catch (error) {
-        console.log(error.message);
+        console.log("AJAX form render function: "+error.message);
     }
 }
 
@@ -84,7 +84,7 @@ exports.gender = async ()=>{
     
         return Gender;
     } catch (error) {
-        console.log(error.message);
+        console.log("AJAX gender function: "+error.message);
     }
 }
 
@@ -102,7 +102,7 @@ exports.relationship = async ()=>{
 
         return relationship;
     } catch (error) {
-        console.log(error.message);
+        console.log("AJAX relation function: "+error.message);
     }
 }
 
@@ -120,7 +120,7 @@ exports.scourse = async ()=>{
     
         return scourse;
     } catch (error) {
-        console.log(error.message);
+        console.log("AJAX scourse function: "+error.message);
     }
 }
 
@@ -139,7 +139,7 @@ exports.ccourse = async ()=>{
     
         return ccourse;
     } catch (error) {
-        console.log(error.message);
+        console.log("AJAX course function: "+error.message);
     }
 }
 
@@ -184,7 +184,7 @@ exports.languages = async ()=>{
     
         return language;
     } catch (error) {
-        console.log(error.message);
+        console.log("AJAX languages function: "+error.message);
     }
 }
 
@@ -215,7 +215,7 @@ exports.technologies = async ()=> {
     
         return technology;
     } catch (error) {
-        console.log(error.message);
+        console.log("AJAX technology function: "+error.message);
     }
 }
 
@@ -233,6 +233,6 @@ exports.preferedCity = async () => {
     
         return preferedcity;
     } catch (error) {
-        console.log(error.message);
+        console.log("AJAX preferedCity function: "+error.message);
     }
 }

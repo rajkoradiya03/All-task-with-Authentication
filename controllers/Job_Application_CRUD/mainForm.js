@@ -28,6 +28,6 @@ exports.mainForm = async (req,res)=>{
             pddata:[],
         });
     } catch (error) {
-        console.log(error);
+        console.log("Normal job application form mainform function: "+error.message);
     }
 }

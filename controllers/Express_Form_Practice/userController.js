@@ -55,15 +55,19 @@ exports.userTableData = (req,res)=> {
 
 
 exports.userInformation = (req,res)=> {
-    var readFile = JSON.parse(fs.readFileSync('user.json').toString());
-    let uid = [];
-    // console.log(readFile[0].id);
-    for(let i = 0; i < readFile.length; i++){
-        uid.push({"id":readFile[i].id});
+    try {
+        var readFile = JSON.parse(fs.readFileSync('user.json').toString());
+        let uid = [];
+        // console.log(readFile[0].id);
+        for(let i = 0; i < readFile.length; i++){
+            uid.push({"id":readFile[i].id});
+        }
+        // console.log(uid);
+        res.render('Express_Form_Practice/userDetails',{
+            data: readFile,
+            id: req.params.id
+        });
+    } catch (error) {
+        console.log("Express form practice userInformation function: "+error.message);
     }
-    // console.log(uid);
-    res.render('Express_Form_Practice/userDetails',{
-        data: readFile,
-        id: req.params.id
-    });
 }

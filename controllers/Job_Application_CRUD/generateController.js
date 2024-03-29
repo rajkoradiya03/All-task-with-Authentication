@@ -176,6 +176,6 @@ exports.getCombos = async (req, res) => {
     }
     return {Gender,Relationship,Languages,Technologies,prefered,SCourse,CCourse};
   } catch (error) {
-    console.log(error.message);
+    console.log("Normal job application form Generate combo function: "+error.message);
   }
 };

@@ -173,6 +173,6 @@ exports.getData = async (req, res) => {
   
     res.render("Delimeter_Search/showData", { data: result, str: str });
   } catch (error) {
-    console.log(error.message);
+    console.log("Delimeter dataController function: "+error.message);
   }
 };

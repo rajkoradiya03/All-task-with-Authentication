@@ -43,7 +43,7 @@ exports.getValue = async (req,res)=>{
 
         }
     } catch (e) {
-        res.json(`${req.query.generator} Not Found... ${e.message}`);
+        res.json(`Generate combo data controller function ${req.query.generator} Not Found... ${e.message}`);
     }
     // console.log(result); 
 }
