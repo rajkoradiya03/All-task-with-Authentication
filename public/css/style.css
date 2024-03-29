@@ -2,10 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: black;
     border: 1px solid #ccc;
-    background-color: black;
-    box-shadow: 0 0 5px -1px rgb(255, 255, 255);
+    background-color: cornflowerblue;
+    box-shadow: 2px 2px 5px gray;
     cursor: pointer;
     vertical-align: middle;
     max-width: 500px;
@@ -22,8 +22,8 @@
     font-size: 20px;
 }
 .btn:active{
-    color: gray;
-    box-shadow: 0 0 5px -1px rgba(0, 0,0,0.5);
+    color: aliceblue;
+    box-shadow: 0 0 0;
 }
 
 .msg{

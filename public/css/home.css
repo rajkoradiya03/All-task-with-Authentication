@@ -1,5 +1,5 @@
 body{
-    background-color: antiquewhite;
+    background-color: lightskyblue;
 }
 
 .container{
@@ -18,14 +18,14 @@ body{
     margin: auto auto;
     background-color: ghostwhite;
     border-radius: 15px;
-    box-shadow: 5px 5px 10px rgb(255, 145, 0);
+    box-shadow: 7px 8px 14px black;
     text-align: center;
 }
 
 h1{
     margin-top: 0;
     font-size: 30px;
-    color: cornflowerblue;
+    color: #337cff;
     font-family: system-ui;
 }
 
@@ -33,7 +33,7 @@ h3, h2{
     margin-top: 0;
     font-size: 25px;
     font-family: system-ui;
-    color: cornflowerblue;
+    color: #337cff;
 }
 
 p{
@@ -60,10 +60,10 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: black;
     border: 1px solid #ccc;
-    background-color: black;
-    box-shadow: 0 0 5px -1px rgb(255, 255, 255);
+    background-color: cornflowerblue;
+    box-shadow: 2px 2px 5px gray;
     cursor: pointer;
     vertical-align: middle;
     max-width: 500px;
@@ -79,6 +79,12 @@ a{
     font-size: 20px;
 }
 
+.homebtn:active{
+    color: aliceblue;
+    box-shadow: 0 0 0;
+}
+
+
 .subdiv{
     display: flex;
     flex-direction: column;
@@ -88,6 +94,7 @@ a{
     padding: 25px;
     border-radius: 5px;
     box-shadow: 4px 4px 4px black;
+    background-color: ghostwhite;
 }
 
 .details{
@@ -110,6 +117,7 @@ a{
     -moz-user-select: none;
     -ms-user-select: none;
     font-weight: 600;
+    background-color: ghostwhite;
 }
 
 .other{
@@ -129,3 +137,4 @@ a{
     color: crimson;
     box-shadow: none;
 }
+

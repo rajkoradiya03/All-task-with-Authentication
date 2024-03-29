@@ -1,5 +1,5 @@
 body{
-    background-color: antiquewhite;
+    background-color: lightskyblue;
 }
 
 .container{
@@ -18,14 +18,14 @@ body{
     margin: auto auto;
     background-color: ghostwhite;
     border-radius: 15px;
-    box-shadow: 5px 5px 10px rgb(255, 145, 0);
+    box-shadow: 7px 8px 14px black;
     /* max-height: 590px; */
 }
 
 h2,h1{
     margin-top: 10px;
     font-size: 35px;
-    color: cornflowerblue;
+    color: #337cff;
     font-family: system-ui;
 }
 
