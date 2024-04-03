@@ -17,6 +17,7 @@ exports.generateCountry = async (req,res)=>{
         res.render('TimeZone_Convertor/timeZone', {country: country})
     } catch (error) {
         console.log("Time zone generateCountry function: "+error.message);
+        res.send('Server Error!!!');
     }
 }
 
@@ -36,5 +37,6 @@ exports.cityRegioun = async (req,res)=>{
         return res.json({getCity : city});  
     } catch (error) {
         console.log("Time zone cityRegion function: "+error.message);
+        res.send('Server Error!!');
     }
 }
