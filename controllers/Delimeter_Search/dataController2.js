@@ -3,7 +3,6 @@ const connection = require("../../config/database");
 exports.getData2 = async (req, res) => {
   try {
     let str = req.body.search;
-    // console.log(str);
     let strRep;
     for (let i = 0; i < str.length; i++) {
       strRep = str.replaceAll("_", " fname ");
@@ -12,10 +11,7 @@ exports.getData2 = async (req, res) => {
       strRep = strRep.replaceAll(":", " city ");
       strRep = strRep.replaceAll("$", " std ");
     }
-    // console.log(strRep);
     let strArr = strRep.split(" ");
-    // console.log(strArr);
-  
     let strObj = {};
     let key;
     for (let i = 1; i < strArr.length; i++) {
@@ -31,7 +27,6 @@ exports.getData2 = async (req, res) => {
     let query = `select * from studentmaster where `;
     for (let i in strObj) {
       if (i === "fname") {
-        // console.log(strObj['fname'].length);
         query += "(";
         for (let j = 0; j < strObj["fname"].length; j++) {
           if (j + 1 < strObj["fname"].length) {
@@ -92,11 +87,8 @@ exports.getData2 = async (req, res) => {
       }
     }
     query += `true limit 100`;
-    // console.log(strObj);
   
     let [result] = await connection.query(query);
-  
-    // console.log(result);
   
     res.render("Delimeter_Search/showData", { data: result, str: str });
   } catch (error) {

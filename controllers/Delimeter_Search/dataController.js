@@ -33,7 +33,6 @@ exports.getData = async (req, res) => {
         continue;
       }
       if (str[i] === "^") {
-        // console.log("inn");
         let substr = "";
         j = i + 1;
         while (
@@ -49,10 +48,8 @@ exports.getData = async (req, res) => {
           j++;
         }
         lname.push(substr);
-        // continue;
       }
       if (str[i] === "{") {
-        // console.log("inn");
         let substr = "";
         j = i + 1;
         while (
@@ -68,10 +65,8 @@ exports.getData = async (req, res) => {
           j++;
         }
         phoneNo.push(substr);
-        // continue;
       }
       if (str[i] === ":") {
-        // console.log("inn");
         let substr = "";
         j = i + 1;
         while (
@@ -87,10 +82,8 @@ exports.getData = async (req, res) => {
           j++;
         }
         city.push(substr);
-        // continue;
       }
       if (str[i] === "$") {
-        // console.log("inn");
         let substr = "";
         j = i + 1;
         while (
@@ -106,7 +99,6 @@ exports.getData = async (req, res) => {
           j++;
         }
         std.push(substr);
-        // continue;
       }
     }
     let query;

@@ -20,9 +20,7 @@ exports.page = async (req,res)=>{
         else{
             page = Number(req.body.page);
         }
-        // console.log(getQuery);
         let sqlquery = req.body.query + " limit ?,10";
-        // console.log(req.body); 
         let offset = page - 1 >= 0 ? page - 1 : 0;
         let startingpoint = offset * process.env.TOTALDATA;
         let [result] = await connection.query(sqlquery,[startingpoint])

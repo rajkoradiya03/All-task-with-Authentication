@@ -34,7 +34,6 @@ exports.examRecord = async (req,res)=>{
         let offset = page - 1 >= 0 ? page - 1 : 0; 
         let startingpoint = offset * process.env.TOTAL_EDATA;
         let [result] = await connection.query(examQuery, [startingpoint])
-        // console.log(result);
         res.render('Exam_Record/examTable', {data:result, totalpage:totalpage, page:page})
     } catch (error) {
         console.log("Exam record examRecord function:" + error.message);

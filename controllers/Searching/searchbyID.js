@@ -17,7 +17,6 @@ exports.dataRetrivebyID = async (req,res)=>{
             page = Number(req.query.page);
         }
         let id = (req.query.sid).split(',').map(Number).reverse();
-        // console.log(id); 
         let examQuery;
         let result;
         examQuery = `select studentmaster.id, studentmaster.s_fname, 

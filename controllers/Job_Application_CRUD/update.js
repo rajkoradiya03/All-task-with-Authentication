@@ -4,7 +4,6 @@ const { getCombos } = require("./generateController");
 exports.updateForm = async (req,res)=>{
     try {
         let id = req.query.sid;
-        // console.log(id);
     
         let Combos = await getCombos();
     
@@ -107,7 +106,6 @@ exports.updateForm = async (req,res)=>{
         let technology = Combos.Technologies(Tres,techlevel)
         let prefered = Combos.prefered(PDres);
     
-        // console.log(dataArr);
     
         res.render("Job_Application_CRUD/jobApplicationForm", {
             Gender : gender,

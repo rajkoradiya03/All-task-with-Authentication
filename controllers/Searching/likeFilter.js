@@ -3,7 +3,6 @@ require('dotenv').config()
 exports.likeData = async (req,res)=>{
     try {
         let fname = req.query.fname;
-        // console.log(fname);
         let lname = req.query.lname;
         let city = req.query.city;
         let operator = req.query.op;
@@ -19,7 +18,6 @@ exports.likeData = async (req,res)=>{
         let offset = page - 1 >=0 ? page - 1 : 0;
         let startingpoint = offset * process.env.TOTALVALUE 
         let [result] = await connection.query(sqlQuery, [startingpoint])
-        // console.log(result);
         res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})
     } catch (error) {
         console.log("Searching like data function: "+error.message);

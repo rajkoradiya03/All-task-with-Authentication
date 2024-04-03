@@ -27,7 +27,6 @@ exports.getCombos = async (req, res) => {
     let [ccourseres] = await connection.query(ccoursesql);
     let [etyperes] = await connection.query(etypesql);
 
-    // console.log(etyperes);
     function Gender(value){
       try {
         let Gender = `<td><label for="${Genderres[0]["select_key"]}">${Genderres[0]["select_key"]}:</label></td>`;
@@ -105,7 +104,6 @@ exports.getCombos = async (req, res) => {
       try {
         let technology = `<tr><td><label for="${technologyres[0]["select_key"]}">${technologyres[0]["select_key"]}:</label></td></tr>`;
         for (let i = 0; i < technologyres.length; i++) {
-          // console.log(tech.filter((d) => d['tech_name'] == technologyres[i]['option_value']));
           technology += `<tr><td><input type="checkbox" name="${technologyres[i]["select_key"]}${i}" id="${technologyres[i]["option_key"]}" value="${technologyres[i]["option_value"]}" 
           ${tech !== undefined ? (tech.filter((d) => d['tech_name'] == technologyres[i]['option_value']).length > 0 ? 'checked' : "") : ""}>
                 <label for="${technologyres[i]["option_key"]}">${technologyres[i]["option_value"]}</label></td>

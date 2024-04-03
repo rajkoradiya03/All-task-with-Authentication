@@ -24,51 +24,6 @@ exports.form = async (req,res)=>{
     }
 }
 
-// exports.showState = async (req,res)=>{
-//     let getState = await this.generateState()
-//     res.render('stateCity', {
-//         getState: getState,
-//     })
-// }
-
-// exports.generateState = async (req,res)=>{
-//     let stateSql = `select * from states;`
-
-//     let [stateRes] = await connection.query(stateSql);
-
-//     let state = "";
-
-//     state += `<td><lable for="States">State:</lable></td>
-//                 <td><select name="State" id="state">
-//                 <option value="">--select state--</option>`;
-//                 for(let i = 0; i <stateRes.length; i++){
-//                     state += `<option value="${stateRes[i]['id']}">${stateRes[i]['state_name']}</option>`
-//                 }
-//                 state += `</select></td>`;
-
-//     return state;
-// }
-
-// exports.generateCity = async (req,res)=>{
-//     let id = req.body.stateID;
-
-//     let citySql = `select cities.id,cities.city_name,states.id as stateID from cities inner join states on cities.state_id = states.id where states.id = ?;`
-
-//     let [cityRes] = await connection.query(citySql, id);
-
-//     let city = "";
-
-//     city += `<td><lable for="City">City:</lable></td>
-//                 <td><select name="City" id="city">
-//                 <option value="">--select city--</option>`;
-//                 for(let i = 0; i <cityRes.length; i++){
-//                     city += `<option value="${cityRes[i]['id']}">${cityRes[i]['city_name']}</option>`
-//                 }
-//                 city += `</select></td>`;
-
-//     return res.json({getCity : city});  
-// }
-
 exports.gender = async ()=>{
     try {
         let Gendersql = `select o.id, s.select_key,s.control_type,o.option_key,o.option_value,s.multiselect,o.selectedvalue from select_master s inner join option_master o on s.id = o.sid where s.select_key = "Gender"`;

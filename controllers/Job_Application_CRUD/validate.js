@@ -3,7 +3,6 @@ const connection = require("../../config/database");
 exports.validation = async (req, res) => {
   try {
     let data = req.body;
-    // console.log(data);
 
     let emailregx = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
     let pNoregx = /^(\d){10}$/;
@@ -75,35 +74,6 @@ exports.validation = async (req, res) => {
             }
           }
 
-          // if (data.Languages0 !== undefined) {
-          //   let Lsql = "";
-          //   Lsql += `update know_languages set Languages='${data.Languages0}',languages_mode='${data.lnglevel0}' where id = '${data.lid[0]}'`;
-          //   let [Lresult] = await connection.query(Lsql);
-
-          //   console.log(Lsql);
-          // }else {
-          //   let lsql = `delete from know_languages where id = ${data.lid[0]}`
-          //   let [lres] = await connection.query(lsql)
-          // }
-          // if (data.Languages1 !== undefined) {
-          //   let Lsql = "";
-          //   Lsql += `update know_languages set Languages='${data.Languages1}',languages_mode='${data.lnglevel1}' where id = '${data.lid[1]}'`;
-          //   let [Lresult] = await connection.query(Lsql);
-          //   console.log(Lsql);
-          // }else {
-          //   let lsql = `delete from know_languages where id = ${data.lid[1]}`
-          //   let [lres] = await connection.query(lsql)
-          // }
-          // if (data.Languages2 !== undefined) {
-          //   let Lsql = "";
-          //   Lsql += `update know_languages set Languages='${data.Languages2}',languages_mode='${data.lnglevel2}' where id = '${data.lid[2]}'`;
-          //   let [Lresult] = await connection.query(Lsql);
-          //   console.log(Lsql);
-          // }else {
-          //   let lsql = `delete from know_languages where id = ${data.lid[2]}`
-          //   let [lres] = await connection.query(lsql)
-          // }
-
           if (typeof data.rname === "object") {
             for (let i = 0; i < data.rname.length; i++) {
               if (data.rname[i] !== "") {
@@ -163,7 +133,6 @@ exports.validation = async (req, res) => {
             let [EDresult] = await connection.query(EDsql);
           }
         }
-        // console.log(EDsql)
         if (typeof data.companyname === "object") {
           for (let i = 0; i < data.companyname.length; i++) {
             if (data.companyname[i] !== "") {

@@ -6,7 +6,6 @@ exports.generateCountry = async (req,res)=>{
     
         let [countryRES] = await connection.query(countrySQL);
     
-        // console.log(countryRES);
     
         let country;
         country = `<option value="">--select Regioun--</option>`;
@@ -39,7 +38,3 @@ exports.cityRegioun = async (req,res)=>{
         console.log("Time zone cityRegion function: "+error.message);
     }
 }
-
-// exports.timezone = (req,res)=>{
-//     let zone = req.body.timezone;
-// }

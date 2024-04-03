@@ -7,7 +7,6 @@ exports.main = (req,res)=>{
 exports.getValue = async (req,res)=>{
     try {
         let generateName = req.query.generator;
-        // console.log(generateName);
         let type = req.query.type;
         let selected = req.query.selected
         if(type === ""){
@@ -37,7 +36,6 @@ exports.getValue = async (req,res)=>{
                                     }
                                     select += `</select>`
                 }
-                // console.log(select);
                 res.render('Generate_Combo/inputgenerate', {input:input,select:select,type:type, selected: selected === undefined ? null : selected})
             }
 
@@ -45,5 +43,4 @@ exports.getValue = async (req,res)=>{
     } catch (e) {
         res.json(`Generate combo data controller function ${req.query.generator} Not Found... ${e.message}`);
     }
-    // console.log(result); 
 }

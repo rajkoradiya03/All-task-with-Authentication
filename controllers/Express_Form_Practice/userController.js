@@ -31,7 +31,6 @@ exports.user = (req,res)=> {
         }
         else{
             userData.id = crypto.randomUUID();
-            // console.log(userData);
             var readFile = JSON.parse(fs.readFileSync('user.json').toString());
             readFile.push(userData);
             fs.writeFileSync('user.json', JSON.stringify(readFile));
@@ -58,11 +57,9 @@ exports.userInformation = (req,res)=> {
     try {
         var readFile = JSON.parse(fs.readFileSync('user.json').toString());
         let uid = [];
-        // console.log(readFile[0].id);
         for(let i = 0; i < readFile.length; i++){
             uid.push({"id":readFile[i].id});
         }
-        // console.log(uid);
         res.render('Express_Form_Practice/userDetails',{
             data: readFile,
             id: req.params.id
