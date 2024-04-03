@@ -153,5 +153,8 @@ router.get("/userDetails/inputgenerate", authrate, getValue);
 router.get("/userDetails/generateCountry", authrate, generateCountry);
 router.post("/userDetails/generateCountry", authrate, cityRegioun);
 
+router.get('*', (req,res)=>{
+  res.send("Page Not Found!!")
+})
 
 module.exports = router;

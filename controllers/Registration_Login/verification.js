@@ -1,4 +1,4 @@
-const connection = require("../../config/database");
+// const connection = require("../../config/database");
 
 exports.getVerification = async (req,res)=>{
   try {
@@ -31,5 +31,6 @@ exports.getVerification = async (req,res)=>{
       }
   } catch (error) {
       console.log("Register Form verification function: "+error.message);
+      res.status(500).render('Registration_Login/Verification' ,{message:"Server Error!!", btn: "Go Back", href: "/"})
   }
 }

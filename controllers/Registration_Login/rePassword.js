@@ -29,5 +29,6 @@ exports.rePassword = async (req,res)=>{
       }
   } catch (error) {
       console.log("Re type password function: "+error.message);
+      res.status(500).render('Registration_Login/Verification', {message:"Server Error!!", btn:"Go Back", href:'/'})
   }
 }

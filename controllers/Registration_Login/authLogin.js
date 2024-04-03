@@ -54,5 +54,6 @@ exports.authLogin = async (req,res) =>{
       }
   } catch (error) {
       console.log("login: "+ error.message);
+      res.status(500).json({ errmessage: "Server Error!!"})
   }
 }

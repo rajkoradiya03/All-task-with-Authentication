@@ -35,6 +35,7 @@ exports.getRegisterData = async (req,res)=>{
         }
     } catch (error) {
         console.log("Register form function: "+error.message);
+        res.status(500).json({errMessage:"Server Error!!"})
     }
 }
 

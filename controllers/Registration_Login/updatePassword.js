@@ -1,5 +1,6 @@
 const connection = require("../../config/database");
-
+const generateString = require('../../common/generateString');
+const md5 = require('md5');
 exports.updatePass = async (req,res)=>{
   try {
       let pass = req.body.pass;
@@ -25,5 +26,6 @@ exports.updatePass = async (req,res)=>{
       }
   } catch (error) {
       console.log("Register Form useController function: "+error.message);
+      return res.status(500).json({message: "Server Error!!"})
   }
 }

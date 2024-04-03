@@ -1,4 +1,5 @@
 const connection = require("../../config/database");
+const generateString = require('../../common/generateString')
 
 exports.forgotPass = async (req,res)=>{
   try {
@@ -24,5 +25,6 @@ exports.forgotPass = async (req,res)=>{
       }
   } catch (error) {
       console.log("Forgot password function: "+error.message);
+      res.status(500).json({message: "Server Error!!"})
   }
 }
