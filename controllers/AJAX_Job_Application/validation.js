@@ -3,7 +3,6 @@ const connection = require("../../config/database");
 exports.ajaxvalidation = async (req,res)=>{
     try {
         let data = req.body;
-        console.log(data);
 
         let emailregx = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
         let pNoregx = /^(\d){10}$/;
@@ -179,7 +178,6 @@ exports.ajaxvalidation = async (req,res)=>{
       
                 let [BDresult] = await connection.query(BDsql);
       
-                console.log(BDresult);
                 let cid = BDresult.insertId;
       
                 for (let i = 0; i < data.Course.length; i++) {
@@ -189,7 +187,6 @@ exports.ajaxvalidation = async (req,res)=>{
                         let [EDresult] = await connection.query(EDsql);
                     }
                 }
-                // console.log(EDsql)
                 if (typeof data.companyname === "object") {
                     for (let i = 0; i < data.companyname.length; i++) {
                         if (data.companyname[i] !== "") {
@@ -287,7 +284,7 @@ exports.ajaxvalidation = async (req,res)=>{
                     if (data.PreferedLocation !== "") {
                         if (data.NP === "" || data.cctc === "") {
                             let PDsql = "";
-                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC) values (${cid}, "${data.PreferedLocation[i]}", "${data.dprt}", "${data.ectc}");`;
+                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC) values (${cid}, "${data.PreferedLocation}", "${data.dprt}", "${data.ectc}");`;
                             let [PDresult] = await connection.query(PDsql);
                         } else {
                             let PDsql = "";
