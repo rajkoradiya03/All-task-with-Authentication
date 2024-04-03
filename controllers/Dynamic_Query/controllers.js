@@ -27,5 +27,6 @@ exports.page = async (req,res)=>{
         res.render('Dynamic_Query/dynamic', {data:result, page:page, totalpage:totalpage, path:req.pathname});
     } catch (error) {
         console.log("Dynamic Query controller function: "+error.message);
+        res.send('Table not Found!!')
     }
 }    
