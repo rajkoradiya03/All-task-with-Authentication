@@ -162,7 +162,7 @@ exports.ajaxvalidation = async (req,res)=>{
                     if (data.PreferedLocation !== "") {
                         if (data.NP === "" || data.cctc === "") {
                             let PDsql = "";
-                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC) values (${data.pid}, "${data.PreferedLocation[i]}", "${data.dprt}", "${data.ectc}");`;
+                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC) values (${data.pid}, "${data.PreferedLocation}", "${data.dprt}", "${data.ectc}");`;
                             let [PDresult] = await connection.query(PDsql);
                         } else {
                             let PDsql = "";
