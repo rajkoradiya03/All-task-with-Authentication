@@ -22,6 +22,16 @@ exports.authLogin = async (req,res) =>{
           res.json({
               errmessage: msg
           })
+      } else if(result[0].isVerified == 0){
+          let dataDeleteSQL = `delete from Users where UserName = ?;`
+  
+          let [deleteRES] = await connection.query(dataDeleteSQL, [data.username]);
+          
+          msg = "User is not verified!!"
+
+          res.json({
+              errmessage : msg
+          })
       } else {
           let password = data.password;
           let salt = result[0].password_salt;
