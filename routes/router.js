@@ -153,11 +153,11 @@ router.get("/userDetails/inputgenerate", authrate, getValue);
 router.get("/userDetails/generateCountry", authrate, generateCountry);
 router.post("/userDetails/generateCountry", authrate, cityRegioun);
 
-router.get("/userDetails/jsonplaceholderapi/post", (req,res)=>{
+router.get("/userDetails/jsonplaceholderapi/post", authrate, (req,res)=>{
   res.render('Json_placeholder_API/home');
 })
 
-router.get("/userDetails/jsonplaceholderapi/post-details/:id", (req,res)=>{
+router.get("/userDetails/jsonplaceholderapi/post-details/:id",authrate, (req,res)=>{
   res.render('Json_placeholder_API/details');
 })
 
