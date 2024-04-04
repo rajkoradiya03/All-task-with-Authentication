@@ -31,11 +31,16 @@ exports.dataRetrivebyID = async (req,res)=>{
                 from studentmaster
                 inner join exam_record on studentmaster.id = exam_record.s_id
                 inner join exammaster on exammaster.e_id = exam_record.e_id
-                where studentmaster.id in (${id}) group by studentmaster.id limit ?,20;`
-                let offset = page - 1 >= 0 ? page - 1 : 0;  
-                let startingpoint = offset * process.env.TOTAL_EDATA;  
-                [result] = await connection.query(examQuery, [startingpoint])
-        res.render('Searching/showData', {data: result, totalpage:totalPage, page:page})
+                where studentmaster.id in (${id}) group by studentmaster.id limit ?,20;`;
+
+        let offset = page - 1 >= 0 ? page - 1 : 0;  
+        let startingpoint = offset * process.env.TOTAL_EDATA;  
+        [result] = await connection.query(examQuery, [startingpoint])
+        if(result.length !== 0){
+            res.render('Searching/showData', {data: result, totalpage:totalPage, page:page});
+        } else {
+            res.send("Data not found!!");
+        }
     
     } catch (e) { 
         logger.error("Error While Get Data in searching exercise dataRetrivebyID function : "+e.message);

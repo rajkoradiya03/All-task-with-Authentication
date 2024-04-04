@@ -24,7 +24,11 @@ exports.fieldData = async (req,res)=>{
             let offset = page - 1 >= 0 ? page - 1 : 0;  
             let startingpoint = offset * process.env.TOTAL_EDATA;
             let [result] = await connection.query(sqlQuery, [startingpoint]) 
-            res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})
+            if(result.length !== 0){
+                res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator});
+            } else {
+                res.send("Data not found!!");
+            }
         }
         else if(!(fname === "" || lname !== "" || city !== "")){
             let sqlQuery = `select * from studentmaster where s_fname = "${fname}" limit ?,20;`
@@ -32,7 +36,11 @@ exports.fieldData = async (req,res)=>{
             let offset = page - 1 >= 0 ? page - 1 : 0;  
             let startingpoint = offset * process.env.TOTAL_EDATA;
             let [result] = await connection.query(sqlQuery, [startingpoint]) 
-            res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})  
+            if(result.length !== 0){
+                res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator});
+            } else {
+                res.send("Data not found!!");
+            }
         }
         else if(!(lname === "" || fname !== "" || city !== "")){
             let sqlQuery = `select * from studentmaster where s_lname = "${lname}" limit ?,20;`
@@ -40,7 +48,11 @@ exports.fieldData = async (req,res)=>{
             let offset = page - 1 >= 0 ? page - 1 : 0;  
             let startingpoint = offset * process.env.TOTAL_EDATA;
             let [result] = await connection.query(sqlQuery, [startingpoint]) 
-            res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})  
+            if(result.length !== 0){
+                res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator});
+            } else {
+                res.send("Data not found!!");
+            }
         }
         else if(!(city === "" || lname !== "" || fname !== "")){
             let sqlQuery = `select * from studentmaster where s_city = "${city}" limit ?,20;`
@@ -48,7 +60,11 @@ exports.fieldData = async (req,res)=>{
             let offset = page - 1 >= 0 ? page - 1 : 0;  
             let startingpoint = offset * process.env.TOTAL_EDATA;
             let [result] = await connection.query(sqlQuery, [startingpoint]) 
-            res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})  
+            if(result.length !== 0){
+                res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator});
+            } else {
+                res.send("Data not found!!");
+            }
         }
         else if(!(fname === "" || lname === "" || city !== "")){
             let sqlQuery = `select * from studentmaster where s_fname = "${fname}" ${operator} s_lname = "${lname}" limit ?,20;`
@@ -56,7 +72,11 @@ exports.fieldData = async (req,res)=>{
             let offset = page - 1 >= 0 ? page - 1 : 0;  
             let startingpoint = offset * process.env.TOTAL_EDATA;
             let [result] = await connection.query(sqlQuery, [startingpoint]) 
-            res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})
+            if(result.length !== 0){
+                res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator});
+            } else {
+                res.send("Data not found!!");
+            }
         }
         else if(!(fname === "" || lname !== "" || city === "")){
             let sqlQuery = `select * from studentmaster where s_fname = "${fname}" ${operator} s_city = "${city}" limit ?,20;`
@@ -64,7 +84,11 @@ exports.fieldData = async (req,res)=>{
             let offset = page - 1 >= 0 ? page - 1 : 0;  
             let startingpoint = offset * process.env.TOTAL_EDATA;
             let [result] = await connection.query(sqlQuery, [startingpoint]) 
-            res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})
+            if(result.length !== 0){
+                res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator});
+            } else {
+                res.send("Data not found!!");
+            }
         }
         else if(!(fname !== "" || lname === "" || city === "")){
             let sqlQuery = `select * from studentmaster where s_lname = "${lname}" ${operator} s_city = "${city}" limit ?,20;`
@@ -72,7 +96,11 @@ exports.fieldData = async (req,res)=>{
             let offset = page - 1 >= 0 ? page - 1 : 0;  
             let startingpoint = offset * process.env.TOTAL_EDATA;
             let [result] = await connection.query(sqlQuery, [startingpoint]) 
-            res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})
+            if(result.length !== 0){
+                res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator});
+            } else {
+                res.send("Data not found!!");
+            }
         }
         else{
             res.send("Enter Filter To get Data....") 
