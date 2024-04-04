@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tableData{
+
+            border-collapse: collapse;
+        }
+        td{
+            padding: 5px;
+            text-align: center;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            align-items: center;
+        }
+        .dataContainer{
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="#" id="form">
+            <input type="text" name="search" id="search">
+            <input type="submit" name="submit" id="submit" value="GO">
+        </form>
+    </div>
+    <div class="dataContainer">
+        <table class="tableData" id="container" border="1">
+        </table>
+    </div>
+    <div class="btn">
+        <button id="prev">Prev</button>
+        <p id="page">Page No:</p>
+        <button id="next">Next</button>
+    </div>
+    <script src="/public/script/Json_Placeholder_API/homeScript.js"></script>   
+</body>
+</html>
