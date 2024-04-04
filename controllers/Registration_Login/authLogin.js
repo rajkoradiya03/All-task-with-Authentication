@@ -1,6 +1,7 @@
 const connection = require("../../config/database");
 const md5 = require("md5");
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const logger = require("../../common/logger");
 
 exports.authLogin = async (req,res) =>{
   try {
@@ -63,7 +64,7 @@ exports.authLogin = async (req,res) =>{
           }
       }
   } catch (error) {
-      console.log("login: "+ error.message);
+      logger.error("Registration login exercise authLogin function: "+ error.message);
       res.status(500).json({ errmessage: "Server Error!!"})
   }
 }

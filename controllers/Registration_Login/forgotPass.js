@@ -1,5 +1,6 @@
 const connection = require("../../config/database");
-const generateString = require('../../common/generateString')
+const generateString = require('../../common/generateString');
+const logger = require("../../common/logger");
 
 exports.forgotPass = async (req,res)=>{
   try {
@@ -24,7 +25,7 @@ exports.forgotPass = async (req,res)=>{
           return res.json({code: verificationCode, email: email})
       }
   } catch (error) {
-      console.log("Forgot password function: "+error.message);
+      logger.error("Registration Login exercise Forgot password function: "+error.message);
       res.status(500).json({message: "Server Error!!"})
   }
 }

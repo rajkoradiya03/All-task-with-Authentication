@@ -1,4 +1,5 @@
 const connection = require('../../config/database');
+const logger = require('../../common/logger');
 
 require('dotenv').config();
 exports.page = (req,res)=>{
@@ -51,7 +52,7 @@ exports.attendence = async (req,res)=>{
         }
         res.render('Attendence_Record/attendencetable', {data:result, totalpage:totalpage, page:page, groupby:groupby, datacount:datacount})
     } catch (error) {
-        console.log("Attendence record function: "+error.message);
+        logger.error("Attendence Record Exersice attendence function: "+ error.message)
     }
 }
  

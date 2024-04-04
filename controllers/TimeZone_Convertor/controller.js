@@ -1,3 +1,4 @@
+const logger = require("../../common/logger");
 const connection = require("../../config/database");
 
 exports.generateCountry = async (req,res)=>{
@@ -16,7 +17,7 @@ exports.generateCountry = async (req,res)=>{
         
         res.render('TimeZone_Convertor/timeZone', {country: country})
     } catch (error) {
-        console.log("Time zone generateCountry function: "+error.message);
+        logger.error("Time zone exercise generateCountry function: "+error.message);
         res.send('Server Error!!!');
     }
 }
@@ -36,7 +37,7 @@ exports.cityRegioun = async (req,res)=>{
     
         return res.json({getCity : city});  
     } catch (error) {
-        console.log("Time zone cityRegion function: "+error.message);
+        logger.error("Time zone exercise cityRegion function: "+error.message);
         res.send('Server Error!!');
     }
 }

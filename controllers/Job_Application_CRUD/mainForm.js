@@ -1,3 +1,4 @@
+const logger = require("../../common/logger");
 const { getCombos } = require("./generateController");
 
 
@@ -28,6 +29,6 @@ exports.mainForm = async (req,res)=>{
             pddata:[],
         });
     } catch (error) {
-        console.log("Normal job application form mainform function: "+error.message);
+        logger.error("Normal job application form mainform function: "+error.message);
     }
 }

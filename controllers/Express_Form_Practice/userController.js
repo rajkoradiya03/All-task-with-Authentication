@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+const logger = require('../../common/logger');
 exports.getForm = (req,res)=> {
     res.render('Express_Form_Practice/Form') 
 }
@@ -37,7 +38,7 @@ exports.user = (req,res)=> {
             res.redirect('/userDetails/form');
         }
     } catch (error) {
-        console.log("Error while Read and ReWrite file:"+ error.message);
+        logger.error("Express form Exersice user function: "+ error.message)
     }
 }
 
@@ -48,7 +49,7 @@ exports.userTableData = (req,res)=> {
             data: readFile
         });
     } catch (error) {
-        console.log("Error while fetch data:"+ error.message);
+        logger.error("Express form Exersice userTableData function: "+ error.message)
     }
 }
 
@@ -65,6 +66,6 @@ exports.userInformation = (req,res)=> {
             id: req.params.id
         });
     } catch (error) {
-        console.log("Express form practice userInformation function: "+error.message);
+        logger.error("Express form Exersice userInformation function: "+ error.message)
     }
 }

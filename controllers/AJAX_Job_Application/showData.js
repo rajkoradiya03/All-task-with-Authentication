@@ -1,4 +1,5 @@
 const connection = require("../../config/database");
+const logger = require('../../common/logger');
 
 exports.showData = async (req,res)=>{
     try {
@@ -10,6 +11,6 @@ exports.showData = async (req,res)=>{
             data: result
         })
     } catch (error) {
-        console.log("AJAX showData Function: "+error.message);
+        logger.error("Ajax Exersice showData function: "+ error.message)
     }
 }

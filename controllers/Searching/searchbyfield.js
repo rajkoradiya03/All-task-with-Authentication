@@ -1,3 +1,4 @@
+const logger = require('../../common/logger');
 const connection = require('../../config/database');
 
 require('dotenv').config();
@@ -77,6 +78,6 @@ exports.fieldData = async (req,res)=>{
             res.send("Enter Filter To get Data....") 
         }
     } catch (e) {
-        console.log("Error While get Data:" +e.message);
+        logger.error("Error While get Data in searching exercise fieldData function: " +e.message);
     }
 }

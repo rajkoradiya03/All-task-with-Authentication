@@ -1,11 +1,10 @@
 const connection = require("../../config/database");
-const { gender, relationship, scourse, ccourse, languages, technologies, preferedCity } = require("./generate");
+const logger = require('../../common/logger');
 
 
 exports.ajaxupdateForm = async (req,res)=>{
     try {
         let id = req.params.id
-        console.log(id);
     
         let BDsql = `select * from candidatemaster where id = ${id};`
         let EDsql = `select * from education_details where cid = ${id};`
@@ -33,6 +32,6 @@ exports.ajaxupdateForm = async (req,res)=>{
             RD: RDres
         })
     } catch (error) {
-        console.log("AJAX Update Function: " + error.message);
+        logger.error("Ajax Exersice updateForm function: "+ error.message)
     }
 }

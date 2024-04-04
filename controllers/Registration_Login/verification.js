@@ -1,3 +1,4 @@
+const logger = require("../../common/logger");
 const connection = require("../../config/database");
 
 exports.getVerification = async (req,res)=>{
@@ -30,7 +31,7 @@ exports.getVerification = async (req,res)=>{
           res.render('Registration_Login/Verification', {message:message, btn:btn, href:href});
       }
   } catch (error) {
-      console.log("Register Form verification function: "+error.message);
+      logger.error("Registration Login exercise getVerification function: "+error.message);
       res.status(500).render('Registration_Login/Verification' ,{message:"Server Error!!", btn: "Go Back", href: "/"})
   }
 }

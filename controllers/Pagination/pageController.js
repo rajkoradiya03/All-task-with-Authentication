@@ -1,3 +1,4 @@
+const logger = require('../../common/logger');
 const connection = require('../../config/database');
 require('dotenv').config();
  
@@ -45,6 +46,6 @@ exports.pagination = async (req,res)=>{
         [result] = await connection.query(sql, [startingpoint])
         res.render('Pagination/pagination', {data:result, totalpage:totalpage, page:page, orderby:orderby, order:order, imgsrc: src})
     } catch (error) {
-        console.log("Pagination function:"+error.message);
+        logger.error("Pagination exercise pagination function:"+error.message);
     }
 }

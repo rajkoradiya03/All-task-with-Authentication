@@ -1,4 +1,6 @@
+const logger = require("../../common/logger");
 const connection = require("../../config/database");
+
 
 exports.getData2 = async (req, res) => {
   try {
@@ -92,6 +94,6 @@ exports.getData2 = async (req, res) => {
   
     res.render("Delimeter_Search/showData", { data: result, str: str });
   } catch (error) {
-    console.log("Delimeter datacontroller2 function: "+error.message);
+    logger.error("Delimeter search Exersice dataController2 function: "+ error.message)
   }
 }

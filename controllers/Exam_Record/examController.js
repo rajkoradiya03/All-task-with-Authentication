@@ -1,3 +1,4 @@
+const logger = require('../../common/logger');
 const connection = require('../../config/database');
 
 require('dotenv').config();
@@ -36,7 +37,7 @@ exports.examRecord = async (req,res)=>{
         let [result] = await connection.query(examQuery, [startingpoint])
         res.render('Exam_Record/examTable', {data:result, totalpage:totalpage, page:page})
     } catch (error) {
-        console.log("Exam record examRecord function:" + error.message);
+        logger.error("Exam Record Exersice examRecord function: "+ error.message)
     }
 }  
 
@@ -75,6 +76,6 @@ exports.reportCard = async (req,res)=>{
         let [attenperrlt] = await connection.query(attenperquery);
         res.render('Exam_Record/ReportCard', {data:result, name:namerlt, attendata:attenrlt, totalmark:totalmarkrlt, attenper:attenperrlt})
     } catch (error) {
-        console.log("Exam record reportcard function: "+error.message);
+        logger.error("Exam Record Exersice reportCard function: "+ error.message)
     }
 } 

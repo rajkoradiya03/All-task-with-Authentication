@@ -1,4 +1,5 @@
-const passport = require('passport')
+const passport = require('passport');
+const logger = require('../common/logger');
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 require('dotenv').config();
@@ -24,7 +25,7 @@ try {
         })
     )
 } catch (error) {
-    console.log("passport: "+ error.message);
+    logger.error("passport verify function error: "+ error.message);
 }
 
 module.exports = passport;

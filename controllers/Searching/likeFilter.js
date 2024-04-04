@@ -1,3 +1,5 @@
+const logger = require('../../common/logger');
+
 require('dotenv').config()
 
 exports.likeData = async (req,res)=>{
@@ -20,6 +22,6 @@ exports.likeData = async (req,res)=>{
         let [result] = await connection.query(sqlQuery, [startingpoint])
         res.render('Searching/filterData', {data:result, page:page, totalpage:totalPage, path:req.pathname, fname:fname, lname:lname, city:city, operator:operator})
     } catch (error) {
-        console.log("Searching like data function: "+error.message);
+        logger.error("Searching exercise likeData function: "+error.message);
     }
 }

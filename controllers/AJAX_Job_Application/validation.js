@@ -1,4 +1,5 @@
 const connection = require("../../config/database");
+const logger = require('../../common/logger');
 
 exports.ajaxvalidation = async (req,res)=>{
     try {
@@ -297,6 +298,6 @@ exports.ajaxvalidation = async (req,res)=>{
             }
         }
     } catch (error) {
-        console.log("AJAX validation function: "+error.message);
+        logger.error("Ajax Exersice validation function: "+ error.message)
     }
 }

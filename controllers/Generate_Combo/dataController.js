@@ -1,3 +1,4 @@
+const logger = require("../../common/logger");
 const connection = require("../../config/database");
 
 exports.main = (req,res)=>{
@@ -41,6 +42,7 @@ exports.getValue = async (req,res)=>{
 
         }
     } catch (e) {
+        logger.error("Generate combo Exersice getValue function: "+ error.message)
         res.json(`Generate combo data controller function ${req.query.generator} Not Found... ${e.message}`);
     }
 }

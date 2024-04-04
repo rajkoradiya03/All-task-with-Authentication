@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const logger = require('../common/logger');
 require('dotenv').config();
 // const passport = require('passport');
 
@@ -16,6 +17,6 @@ exports.authrate = (req,res,next)=>{
             next();
         }
     } catch (error) {
-        console.log("auth err: " + error.message);
+        logger.error("middleware authrenticate function err: " + error.message);
     }
 }

@@ -1,4 +1,5 @@
 const mysql = require('mysql2');
+const logger = require('../common/logger');
 require('dotenv').config();
 
 let connection;
@@ -12,7 +13,7 @@ try {
         password: process.env.DB_PASSWORD,
     }).promise();
 } catch (error) {
-    console.log("database: " + error.message);
+    logger.error("database connection error : " + error.message);
 }
 
 module.exports = connection;

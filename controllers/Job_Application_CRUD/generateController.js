@@ -1,3 +1,4 @@
+const logger = require("../../common/logger");
 const connection = require("../../config/database");
 
 exports.getCombos = async (req, res) => {
@@ -39,7 +40,7 @@ exports.getCombos = async (req, res) => {
   
         return Gender;
       } catch (error) {
-        console.log("Gender function: " + error.message);
+        logger.error("Normal JAF Exersice gender function: "+ error.message)
       }
     }
 
@@ -53,7 +54,7 @@ exports.getCombos = async (req, res) => {
   
         return relationship
       } catch (error) {
-        console.log("Relation Function: " + error.message);
+        logger.error("Normal JAF Exersice Relation Function: " + error.message);
       }
     }
 
@@ -96,7 +97,7 @@ exports.getCombos = async (req, res) => {
   
         return language;
       } catch (error) {
-        console.log("Language function: "+ error.message);
+        logger.error("Normal JAF Exersice Language function: "+ error.message);
       }
     }
 
@@ -127,7 +128,7 @@ exports.getCombos = async (req, res) => {
   
         return technology;
       } catch (error) {
-        console.log("technology function: "+error.message);
+        logger.error("Normal JAF Exersice technology function: "+error.message);
       }
     }
 
@@ -141,7 +142,7 @@ exports.getCombos = async (req, res) => {
   
         return preferedcity;
       } catch (error) {
-        console.log("preferedcity function: "+ error.message);
+        logger.error("Normal JAF Exersice preferedcity function: "+ error.message);
       }
     }
 
@@ -155,7 +156,7 @@ exports.getCombos = async (req, res) => {
   
         return scourse;
       } catch (error) {
-        console.log("Scourse function: "+error.message);
+        logger.error("Normal JAF Exersice Scourse function: "+error.message);
       }
     }
 
@@ -169,11 +170,11 @@ exports.getCombos = async (req, res) => {
   
         return ccourse;
       } catch (error) {
-        console.log("Ccourse function: "+error.message);
+        logger.error("Normal JAF Exersice Ccourse function: "+error.message);
       }
     }
     return {Gender,Relationship,Languages,Technologies,prefered,SCourse,CCourse};
   } catch (error) {
-    console.log("Normal job application form Generate combo function: "+error.message);
+    logger.error("Normal job application form Generate combo function: "+error.message);
   }
 };

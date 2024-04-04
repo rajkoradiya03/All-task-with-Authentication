@@ -1,3 +1,4 @@
+const logger = require('../../common/logger');
 const connection = require('../../config/database');
 
 require('dotenv').config();
@@ -37,6 +38,6 @@ exports.dataRetrivebyID = async (req,res)=>{
         res.render('Searching/showData', {data: result, totalpage:totalPage, page:page})
     
     } catch (e) { 
-        console.log("Error While Get Data: "+e.message);
+        logger.error("Error While Get Data in searching exercise dataRetrivebyID function : "+e.message);
     }
 } 

@@ -1,3 +1,4 @@
+const logger = require("../../common/logger");
 const connection = require("../../config/database");
 
 exports.dataTable = (req,res)=>{
@@ -10,6 +11,6 @@ exports.dataRetrive = async (req,res)=>{
         let [result] = await connection.query(dataQuery)
         res.render('MySQL_Grid/dataTable', {data: result})
     } catch (error) {
-        console.log("Error While Fetch Data: "+ error.message);
+        logger.error("Error While Fetch Data in MySQL grid exercise dataRetrive function: "+ error.message);
     }
 }   

@@ -1,5 +1,6 @@
 const express = require("express");
 const connection = require("../../config/database");
+const logger = require("../../common/logger");
 require('dotenv').config();
 
 exports.query = (req,res)=>{
@@ -26,7 +27,7 @@ exports.page = async (req,res)=>{
         let [result] = await connection.query(sqlquery,[startingpoint])
         res.render('Dynamic_Query/dynamic', {data:result, page:page, totalpage:totalpage, path:req.pathname});
     } catch (error) {
-        console.log("Dynamic Query controller function: "+error.message);
+        logger.error("Dynamic_Query Exersice controller function: "+ error.message)
         res.send('Table not Found!!')
     }
 }    

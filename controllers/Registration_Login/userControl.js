@@ -2,7 +2,8 @@ const md5 = require("md5");
 const connection = require("../../config/database");
 require('dotenv').config();
 const jwt = require('jsonwebtoken')
-const generateString = require("../../common/generateString")
+const generateString = require("../../common/generateString");
+const logger = require("../../common/logger");
 
 exports.getRegisterData = async (req,res)=>{
     try { 
@@ -34,7 +35,7 @@ exports.getRegisterData = async (req,res)=>{
             res.json({message: "Click Here", code: verificationCode, email:data.email})
         }
     } catch (error) {
-        console.log("Register form function: "+error.message);
+        logger.error("Registration Login exercise getRegisterData function: "+error.message);
         res.status(500).json({errMessage:"Server Error!!"})
     }
 }

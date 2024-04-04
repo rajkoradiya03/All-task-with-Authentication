@@ -1,3 +1,4 @@
+const logger = require("../../common/logger");
 const connection = require("../../config/database");
 
 exports.validation = async (req, res) => {
@@ -243,6 +244,6 @@ exports.validation = async (req, res) => {
       }
     }
   } catch (e) {
-    console.log("Normal Job application form validate function: " + e.message);
+    logger.error("Normal Job application form validate function: " + e.message);
   }
 };

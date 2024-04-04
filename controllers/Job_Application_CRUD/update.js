@@ -1,3 +1,4 @@
+const logger = require("../../common/logger");
 const connection = require("../../config/database");
 const { getCombos } = require("./generateController");
 
@@ -122,6 +123,6 @@ exports.updateForm = async (req,res)=>{
             pddata: PDArr,
         });
     } catch (error) {
-        console.log("Update: " + error.message);
+        logger.error("Normal JAF Exersice Update function: " + error.message);
     }
 }

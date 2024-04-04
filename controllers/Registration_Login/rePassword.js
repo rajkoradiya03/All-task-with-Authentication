@@ -1,3 +1,4 @@
+const logger = require("../../common/logger");
 const connection = require("../../config/database");
 
 exports.rePassword = async (req,res)=>{
@@ -28,7 +29,7 @@ exports.rePassword = async (req,res)=>{
           res.render('Registration_Login/reEnterPass')
       }
   } catch (error) {
-      console.log("Re type password function: "+error.message);
+      logger.error("Registration Login exercise Re type password function: "+error.message);
       res.status(500).render('Registration_Login/Verification', {message:"Server Error!!", btn:"Go Back", href:'/'})
   }
 }

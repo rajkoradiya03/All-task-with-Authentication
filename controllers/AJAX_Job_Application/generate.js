@@ -1,4 +1,5 @@
 const connection = require("../../config/database");
+const logger = require('../../common/logger');
 
 exports.form = async (req,res)=>{
     try {
@@ -20,7 +21,7 @@ exports.form = async (req,res)=>{
             PreferedCity: PreferedCity,
         });
     } catch (error) {
-        console.log("AJAX form render function: "+error.message);
+        logger.error("Ajax exresice Form function: " + error.message);
     }
 }
 
@@ -39,7 +40,7 @@ exports.gender = async ()=>{
     
         return Gender;
     } catch (error) {
-        console.log("AJAX gender function: "+error.message);
+        logger.error("Ajax Exersice gender function: "+ error.message)
     }
 }
 
@@ -57,7 +58,7 @@ exports.relationship = async ()=>{
 
         return relationship;
     } catch (error) {
-        console.log("AJAX relation function: "+error.message);
+        logger.error("Ajax Exersice relationship function: "+ error.message)
     }
 }
 
@@ -75,7 +76,7 @@ exports.scourse = async ()=>{
     
         return scourse;
     } catch (error) {
-        console.log("AJAX scourse function: "+error.message);
+        logger.error("Ajax Exersice scource function: "+ error.message)
     }
 }
 
@@ -94,7 +95,7 @@ exports.ccourse = async ()=>{
     
         return ccourse;
     } catch (error) {
-        console.log("AJAX course function: "+error.message);
+        logger.error("Ajax Exersice ccourse function: "+ error.message)
     }
 }
 
@@ -139,7 +140,7 @@ exports.languages = async ()=>{
     
         return language;
     } catch (error) {
-        console.log("AJAX languages function: "+error.message);
+        logger.error("Ajax Exersice languages function: "+ error.message)
     }
 }
 
@@ -170,7 +171,7 @@ exports.technologies = async ()=> {
     
         return technology;
     } catch (error) {
-        console.log("AJAX technology function: "+error.message);
+        logger.error("Ajax Exersice technology function: "+ error.message)
     }
 }
 
@@ -188,6 +189,6 @@ exports.preferedCity = async () => {
     
         return preferedcity;
     } catch (error) {
-        console.log("AJAX preferedCity function: "+error.message);
+        logger.error("Ajax Exersice preferedcity function: "+ error.message)
     }
 }
