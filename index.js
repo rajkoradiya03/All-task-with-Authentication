@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const app = express();
 require('dotenv').config();
-const logger = require("./common/logger");
+const logger = require("./common/logger2");
 
 app.use(cookieParser())
 app.use(express.urlencoded({extended:false}));
