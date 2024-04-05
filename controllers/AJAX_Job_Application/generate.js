@@ -1,5 +1,6 @@
 const connection = require("../../config/database");
 const logger = require('../../common/logger');
+const { selectQueryCommon } = require("../../common/ajaxSelectCommon");
 
 exports.form = async (req,res)=>{
     try {
@@ -27,10 +28,9 @@ exports.form = async (req,res)=>{
 
 exports.gender = async ()=>{
     try {
-        let Gendersql = `select o.id, s.select_key,s.control_type,o.option_key,o.option_value,s.multiselect,o.selectedvalue from select_master s inner join option_master o on s.id = o.sid where s.select_key = "Gender"`;
-    
-        let [Genderres] = await connection.query(Gendersql);
-    
+        
+        let Genderres = await selectQueryCommon("Gender");
+
         let Gender = `<td><label for="${Genderres[0]["select_key"]}">${Genderres[0]["select_key"]}:</label></td>`;
         Gender += `<td class="flex">`;
         for (let i = 0; i < Genderres.length; i++) {
@@ -46,9 +46,8 @@ exports.gender = async ()=>{
 
 exports.relationship = async ()=>{
     try {
-        let relationsql = `select o.id, s.select_key,s.control_type,o.option_key,o.option_value,s.multiselect,o.selectedvalue from select_master s inner join option_master o on s.id = o.sid where s.select_key = "Relationship"`;
-    
-        let [relationres] = await connection.query(relationsql);
+        
+        let relationres = await selectQueryCommon("Relationship");
     
         let relationship = `<td><label for="${relationres[0]["select_key"]}">${relationres[0]["select_key"]} Status:</label></td><td class="flex"><select name="${relationres[0]["select_key"]}" id="${relationres[0]["select_key"]}" ${relationres[0]["multiselect"]} ><option value="">Select status</option>`;
         for (let i = 0; i < relationres.length; i++) {
@@ -64,9 +63,8 @@ exports.relationship = async ()=>{
 
 exports.scourse = async ()=>{
     try {
-        let scoursesql = `select o.id, s.select_key,s.control_type,o.option_key,o.option_value,s.multiselect,o.selectedvalue from select_master s inner join option_master o on s.id = o.sid where s.select_key = "SchoolCourse";`
         
-        let [scourseres] = await connection.query(scoursesql);
+        let scourseres = await selectQueryCommon("SchoolCourse");
     
         let scourse = `<td><label for="Course">Course Name:</label></td><td><select name="Course" id="${scourseres[0]["select_key"]}" ${scourseres[0]["multiselect"]} ><option value="">Select course</option>`;
         for (let i = 0; i < scourseres.length; i++) {
@@ -83,9 +81,7 @@ exports.scourse = async ()=>{
 
 exports.ccourse = async ()=>{
     try {
-        let ccoursesql = `select o.id, s.select_key,s.control_type,o.option_key,o.option_value,s.multiselect,o.selectedvalue from select_master s inner join option_master o on s.id = o.sid where s.select_key = "CollegeCourse";`   
-        
-        let [ccourseres] = await connection.query(ccoursesql);
+        let ccourseres = await selectQueryCommon("CollegeCourse");
     
         let ccourse = `<td><label for="Course">Course Name:</label></td><td><select name="Course" id="${ccourseres[0]["select_key"]}" ${ccourseres[0]["multiselect"]} ><option value="">Select course</option>`;
         for (let i = 0; i < ccourseres.length; i++) {
@@ -101,9 +97,7 @@ exports.ccourse = async ()=>{
 
 exports.languages = async ()=>{
     try {
-        let languagesql = `select s.select_key,s.control_type,o.option_key,o.option_value,s.multiselect,o.selectedvalue from select_master s inner join option_master o on s.id = o.sid where s.select_key = "Languages"`;
-    
-        let [languageres] = await connection.query(languagesql);
+        let languageres = await selectQueryCommon("Languages");
     
         let language = `<tr><td><label for="${languageres[0]["select_key"]}">${languageres[0]["select_key"]}:</label></td></tr>`;
         for (let i = 0; i < languageres.length; i++) {
@@ -146,12 +140,9 @@ exports.languages = async ()=>{
 
 exports.technologies = async ()=> {
     try {
-        let technologysql = `select s.select_key,s.control_type,o.option_key,o.option_value,s.multiselect,o.selectedvalue from select_master s inner join option_master o on s.id = o.sid where s.select_key = "Technologies"`;
+        let technologyres = await selectQueryCommon("Technologies");
     
-        let techlevelsql = `select s.select_key,s.control_type,o.option_key,o.option_value,s.multiselect,o.selectedvalue from select_master s inner join option_master o on s.id = o.sid where s.select_key = "Level"`;
-    
-        let [technologyres] = await connection.query(technologysql);
-        let [techlevelres] = await connection.query(techlevelsql);
+        let techlevelres = await selectQueryCommon("Level");
     
         let technology = `<tr><td><label for="${technologyres[0]["select_key"]}">${technologyres[0]["select_key"]}:</label></td></tr>`;
           for (let i = 0; i < technologyres.length; i++) {
@@ -177,9 +168,7 @@ exports.technologies = async ()=> {
 
 exports.preferedCity = async () => {
     try {
-        let preferedcitysql = `select s.select_key,s.control_type,o.option_key,o.option_value,s.multiselect,o.selectedvalue from select_master s inner join option_master o on s.id = o.sid where s.select_key = "PreferedLocation"`;
-    
-        let [preferedcityres] = await connection.query(preferedcitysql);
+        let preferedcityres = await selectQueryCommon("PreferedLocation");
     
         let preferedcity = `<td><label for="${preferedcityres[0]["select_key"]}">${preferedcityres[0]["select_key"]} :</label></td><td class="flex"><select name="${preferedcityres[0]["select_key"]}" id="${preferedcityres[0]["select_key"]}" ${preferedcityres[0]["multiselect"]} >`;
         for (let i = 0; i < preferedcityres.length; i++) {

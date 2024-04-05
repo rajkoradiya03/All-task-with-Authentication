@@ -45,117 +45,117 @@ exports.ajaxvalidation = async (req,res)=>{
         return res.redirect("/userDetails/validateMsg");
         } else {
             if(data.id !== ""){
-                let upbd = `update candidatemaster set c_fname='${data.fname}',c_lname='${data.lname}', c_designation='${data.Cdesignation}', c_email='${data.email}', c_phoneNo='${data.pNo}', c_address='${data.addr}', c_city='${data.city}', c_state='${data.state}', c_zipcode='${data.zipcode}', c_gender='${data.Gender}', c_relationship='${data.Relationship}', c_dob='${data.DOB}' where id = '${data.id}';`
+                let upbd = `update candidatemaster set c_fname= ? ,c_lname= ? , c_designation= ? , c_email= ? , c_phoneNo= ? , c_address= ? , c_city= ? , c_state= ? , c_zipcode= ? , c_gender= ? , c_relationship= ? , c_dob= ?  where id = ? ;`
 
-                let [bdres] = await  connection.query(upbd);
+                let [bdres] = await  connection.query(upbd, [data.fname, data.lname, data.Cdesignation, data.email, data.pNo, data.addr, data.city, data.state, data.zipcode, data.Gender, data.Relationship, data.DOB, data.id]);
 
                 for(let i = 0; i < data.Course.length; i++){
                     if(data.Course[i] !== ""){
-                      let uped = `update education_details set education_type='${data.etype[i]}',course_name='${data.Course[i]}',passing_year='${data.Year[i]}',persentage='${data.Percentage[i]}' where id = '${data.eid[i]}';`
+                      let uped = `update education_details set education_type = ? ,course_name = ? ,passing_year = ? , persentage = ?  where id = ? ;`
         
-                      let [edres] = await connection.query(uped);
+                      let [edres] = await connection.query(uped, [data.etype[i], data.Course[i], data.Year[i], data.Percentage[i], data.eid[i]]);
                     }
                 }
 
                 if (typeof data.companyname === "object") {
                     for (let i = 0; i < data.companyname.length; i++) {
                       if (data.companyname[i] !== "") {
-                        let upwe = `update work_experience_details set company_name='${data.companyname[i]}',current_designation='${data.designation[i]}',joining_date='${data.from[i]}',leaving_date='${data.to[i]}' where id = '${data.wid[i]}';`;
+                        let upwe = `update work_experience_details set company_name = ? ,current_designation = ? ,joining_date = ? ,leaving_date = ? where id = ? ;`;
             
-                        let [weres] = await connection.query(upwe);
+                        let [weres] = await connection.query(upwe, [data.companyname[i], data.designation[i], data.from[i], data.to[i], data.wid[i]]);
                       }
                     }
                 } else {
                     if (data.companyname !== "") {
-                      let upwe = `update work_experience_details set company_name='${data.companyname}',current_designation='${data.designation}',joining_date='${data.from}',leaving_date='${data.to}' where id = '${data.wid}';`;
+                      let upwe = `update work_experience_details set company_name = ? ,current_designation = ? ,joining_date = ? ,leaving_date = ? where id = ? ;`;
             
-                        let [weres] = await connection.query(upwe);
+                        let [weres] = await connection.query(upwe, [data.companyname, data.designation, data.from, data.to, data.wid]);
                     }
                 }
 
                 if (typeof data.rname === "object") {
                     for (let i = 0; i < data.rname.length; i++) {
                       if (data.rname[i] !== "") {
-                        let RDsql = `update reference_details set reference_name='${data.rname[i]}',reference_phoneNo='${data.cnum[i]}',relation='${data.rel[i]}' where id = ${data.rid[i]};`;
+                        let RDsql = `update reference_details set reference_name = ? ,reference_phoneNo = ? ,relation = ? where id = ? ;`;
             
-                        let [RDres] = await connection.query(RDsql);
+                        let [RDres] = await connection.query(RDsql, [data.rname[i], data.cnum[i], data.rel[i], data.rid[i]]);
                       }
                     }
                 } else {
                     if (data.rname !== "") {
-                      let RDsql = `update reference_details set reference_name='${data.rname}',reference_phoneNo='${data.cnum}',relation='${data.rel}' where id = ${data.rid};`;
+                      let RDsql = `update reference_details set reference_name = ?,reference_phoneNo = ?,relation = ? where id = ? ;`;
           
-                      let [RDres] = await connection.query(RDsql);
+                      let [RDres] = await connection.query(RDsql, [data.rname, data.cnum, data.rel, data.rid]);
                     }
                 }
 
-                let lngSQL = `delete from know_languages where cid = ${data.id};`
-                let [lngRes] = await connection.query(lngSQL);
+                let lngSQL = `delete from know_languages where cid = ? ;`
+                let [lngRes] = await connection.query(lngSQL, [data.id]);
 
                 if (data.Languages0 !== undefined) {
                     let Lsql = "";
-                    Lsql += `insert into know_languages(cid,Languages,languages_mode) values (${data.id}, "${data.Languages0}","${data.lnglevel0}")`;
-                    let [Lresult] = await connection.query(Lsql);
+                    Lsql += "insert into know_languages(cid,Languages,languages_mode) values (?)";
+                    let [Lresult] = await connection.query(Lsql, [[data.id, data.Languages0, data.lnglevel0.join(",")]]);
                 }
                 if (data.Languages1 !== undefined) {
                     let Lsql = "";
-                    Lsql += `insert into know_languages(cid,Languages,languages_mode) values (${data.id}, "${data.Languages1}","${data.lnglevel1}")`;
-                    let [Lresult] = await connection.query(Lsql);
+                    Lsql += `insert into know_languages(cid,Languages,languages_mode) values (?)`;
+                    let [Lresult] = await connection.query(Lsql, [[data.id, data.Languages1, data.lnglevel1.join(",")]]);
                 }
                 if (data.Languages2 !== undefined) {
                     let Lsql = "";
-                    Lsql += `insert into know_languages(cid,Languages,languages_mode) values (${data.id}, "${data.Languages2}","${data.lnglevel2}")`;
-                    let [Lresult] = await connection.query(Lsql);
+                    Lsql += `insert into know_languages(cid,Languages,languages_mode) values (?)`;
+                    let [Lresult] = await connection.query(Lsql, [[data.id, data.Languages2, data.lnglevel2.join(",")]]);
                 }
 
-                let techSQL = `delete from technologies where cid = ${data.id};`
-                let [techRES] = await connection.query(techSQL);
+                let techSQL = `delete from technologies where cid = ? ;`
+                let [techRES] = await connection.query(techSQL, [data.id]);
 
                 if (data.Technologies0 !== undefined) {
                     let Tsql = "";
-                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (${data.id}, "${data.Technologies0}","${data.level0}")`;
-                    let [Tresult] = await connection.query(Tsql);
+                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (?)`;
+                    let [Tresult] = await connection.query(Tsql, [[data.id, data.Technologies0, data.level0]]);
                 }
                 if (data.Technologies1 != undefined) {
                     let Tsql = "";
-                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (${data.id}, "${data.Technologies1}","${data.level1}")`;
-                    let [Tresult] = await connection.query(Tsql);
+                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (?)`;
+                    let [Tresult] = await connection.query(Tsql, [[data.id, data.Technologies1, data.level1]]);
                 }
                 if (data.Technologies2 != undefined) {
                     let Tsql = "";
-                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (${data.id}, "${data.Technologies2}","${data.level2}")`;
-                    let [Tresult] = await connection.query(Tsql);
+                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (?)`;
+                    let [Tresult] = await connection.query(Tsql, [[data.id, data.Technologies2, data.level2]]);
                 }
                 if (data.Technologies3 != undefined) {
                     let Tsql = "";
-                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (${data.id}, "${data.Technologies3}","${data.level3}")`;
-                    let [Tresult] = await connection.query(Tsql);
+                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (?)`;
+                    let [Tresult] = await connection.query(Tsql, [[data.id, data.Technologies3, data.level3]]);
                 }
                 if (data.Technologies4 != undefined) {
                     let Tsql = "";
-                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (${data.id}, "${data.Technologies4}","${data.level4}")`;
-                    let [Tresult] = await connection.query(Tsql);
+                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (?)`;
+                    let [Tresult] = await connection.query(Tsql, [[data.id, data.Technologies4, data.level4]]);
                 }
                 if (data.Technologies5 != undefined) { 
                     let Tsql = "";
-                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (${data.id}, "${data.Technologies5}","${data.level5}")`;
-                    let [Tresult] = await connection.query(Tsql);
+                    Tsql += `insert into technologies(cid,tech_name,tech_level) values (?)`;
+                    let [Tresult] = await connection.query(Tsql, [[data.id, data.Technologies5, data.level5]]);
                 }
 
-                let PDSQL = `delete from preference_details where cid = ${data.pid};`
-                let [PDres] = await connection.query(PDSQL);
+                let PDSQL = `delete from preference_details where cid = ?;`
+                let [PDres] = await connection.query(PDSQL, [data.pid]);
 
                 if (typeof data.PreferedLocation === "object") {
                     for (let i = 0; i < data.PreferedLocation.length; i++) {
                         if (data.PreferedLocation[i] !== "") {
                         if (data.NP === "" || data.cctc === "") {
                             let PDsql = "";
-                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC) values (${data.pid}, "${data.PreferedLocation[i]}", "${data.dprt}", "${data.ectc}");`;
-                            let [PDresult] = await connection.query(PDsql);
+                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC) values (?);`;
+                            let [PDresult] = await connection.query(PDsql, [[data.id, data.PreferedLocation[i], data.dprt, data.ectc]]);
                         } else {
                             let PDsql = "";
-                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC,notice_period,current_CTC) values (${data.pid}, "${data.PreferedLocation[i]}", "${data.dprt}", "${data.ectc}","${data.NP}","${data.cctc}");`;
-                            let [PDresult] = await connection.query(PDsql);
+                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC,notice_period,current_CTC) values (?);`;
+                            let [PDresult] = await connection.query(PDsql, [[data.id, data.PreferedLocation[i], data.dprt, data.ectc, data.NP, data.cctc]]);
                         }
                         }
                     }
@@ -163,12 +163,12 @@ exports.ajaxvalidation = async (req,res)=>{
                     if (data.PreferedLocation !== "") {
                         if (data.NP === "" || data.cctc === "") {
                             let PDsql = "";
-                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC) values (${data.pid}, "${data.PreferedLocation}", "${data.dprt}", "${data.ectc}");`;
-                            let [PDresult] = await connection.query(PDsql);
+                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC) values (?);`;
+                            let [PDresult] = await connection.query(PDsql, [[data.id, data.PreferedLocation, data.dprt, data.ectc]]);
                         } else {
                             let PDsql = "";
-                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC,notice_period,current_CTC) values (${data.pid}, "${data.PreferedLocation}", "${data.dprt}", "${data.ectc}","${data.NP}","${data.cctc}");`;
-                            let [PDresult] = await connection.query(PDsql);
+                            PDsql = `insert into preference_details(cid,prefered_location,department,expacted_CTC,notice_period,current_CTC) values (?);`;
+                            let [PDresult] = await connection.query(PDsql, [[data.id, data.PreferedLocation, data.dprt, data.ectc, data.NP, data.cctc]]);
                         }
                     }
                 }
@@ -298,6 +298,6 @@ exports.ajaxvalidation = async (req,res)=>{
             }
         }
     } catch (error) {
-        logger.error("Ajax Exersice validation function: "+ error.message)
+        logger.error("Ajax Exersice validation function: "+ error)
     }
 }
